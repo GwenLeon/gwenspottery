@@ -45,11 +45,6 @@
       line-height: 1.75;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      opacity: 0;
-    }
-    body.page-visible {
-      opacity: 1;
-      transition: opacity 0.9s ease;
     }
 
     img { display: block; max-width: 100%; }
@@ -1161,7 +1156,7 @@
   // ========================
   // PAGE FADE-IN (JS statt CSS animation, verhindert containing-block)
   // ========================
-  setTimeout(() => document.body.classList.add('page-visible'), 30);
+  // Page is visible by default - no fade-in needed
 
   // ========================
   // SPRACHE

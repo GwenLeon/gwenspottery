@@ -33,7 +33,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -43,12 +43,13 @@
       line-height: 1.75;
       font-weight: 300;
       -webkit-font-smoothing: antialiased;
-      animation: pageEnter 0.9s ease both;
+      overflow-x: hidden;
+      overscroll-behavior: none;
+      opacity: 0;
     }
-
-    @keyframes pageEnter {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: translateY(0); }
+    body.page-visible {
+      opacity: 1;
+      transition: opacity 0.9s ease;
     }
 
     img { display: block; max-width: 100%; }
@@ -71,11 +72,12 @@
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
     }
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
     .reveal-delay-1 { transition-delay: 0.12s; }
     .reveal-delay-2 { transition-delay: 0.24s; }
@@ -830,6 +832,36 @@
     footer p { position: relative; z-index: 1; }
 
     /* ========================
+       CUSTOM CURSOR
+    ======================== */
+    @media (pointer: fine) {
+      * { cursor: none !important; }
+      .cursor-dot {
+        width: 6px; height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      .cursor-ring {
+        width: 28px; height: 28px;
+        border: 1px solid rgba(184,122,94,0.4);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.4s ease, height 0.4s ease, border-color 0.4s ease;
+      }
+      .cursor-ring.on-link  { width: 48px; height: 48px; border-color: rgba(184,122,94,0.22); }
+      .cursor-ring.on-image { width: 78px; height: 78px; border-color: rgba(184,122,94,0.16); border-width: 1px; }
+    }
+
+    /* ========================
        RESPONSIVE
     ======================== */
     @media (max-width: 900px) {
@@ -1277,6 +1309,11 @@
 
 <script>
   // ========================
+  // PAGE FADE-IN (JS statt CSS animation, verhindert containing-block)
+  // ========================
+  requestAnimationFrame(() => document.body.classList.add('page-visible'));
+
+  // ========================
   // SPRACHE
   // ========================
   function toggleLang() {
@@ -1361,6 +1398,43 @@
   } else {
     // Fallback für ältere Browser
     revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // ========================
+  // CUSTOM CURSOR (nur Maus-Geräte)
+  // ========================
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const dot  = document.createElement('div');
+    const ring = document.createElement('div');
+    dot.className  = 'cursor-dot';
+    ring.className = 'cursor-ring';
+    document.documentElement.appendChild(dot);
+    document.documentElement.appendChild(ring);
+
+    let mx = -200, my = -200, rx = -200, ry = -200;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+
+    (function lerpRing() {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(lerpRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('on-link'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('on-link'));
+    });
+    document.querySelectorAll('.hero-image, .about-image, .product-image-wrap, .img-box').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.classList.remove('on-link'); ring.classList.add('on-image'); });
+      el.addEventListener('mouseleave', () => ring.classList.remove('on-image'));
+    });
   }
 </script>
 

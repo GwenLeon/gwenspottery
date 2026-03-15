@@ -1161,7 +1161,9 @@
   // ========================
   // PAGE FADE-IN (JS statt CSS animation, verhindert containing-block)
   // ========================
-  requestAnimationFrame(() => document.body.classList.add('page-visible'));
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => document.body.classList.add('page-visible'));
+  });
 
   // ========================
   // SPRACHE

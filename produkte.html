@@ -33,11 +33,10 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; overscroll-behavior: none; }
+    html { overflow-x: hidden; }
 
     body {
       overflow-x: hidden;
-      overscroll-behavior: none;
       font-family: 'DM Sans', sans-serif;
       background-color: var(--bg);
       color: var(--text);
@@ -723,33 +722,6 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ========================
-       CSS SCROLL-DRIVEN PARALLAX
-    ======================== */
-    @supports (animation-timeline: view()) {
-      @keyframes img-parallax {
-        from { transform: scale(1.1) translateY(-5%); }
-        to   { transform: scale(1.1) translateY(5%);  }
-      }
-      .product-image-wrap img {
-        animation: img-parallax linear both;
-        animation-timeline: view();
-        animation-range: entry 0% exit 100%;
-        transition: none;
-      }
-      .product-image-wrap:hover img { transform: none; }
-      @keyframes detail-parallax {
-        from { transform: scale(1.09) translateY(-4%); }
-        to   { transform: scale(1.09) translateY(4%);  }
-      }
-      .detail-grid-item img {
-        animation: detail-parallax linear both;
-        animation-timeline: view();
-        animation-range: entry 0% exit 100%;
-        transition: none;
-      }
-      .detail-grid-item:hover img { transform: none; }
-    }
 
     /* ========================
        GALLERY HOVER LABELS

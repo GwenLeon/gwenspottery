@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handgemachte Keramik kaufen | Gwen's Pottery Hamburg</title>
+  <meta name="description" content="Handgemachtes Keramik-Set aus Hamburg. 16 Teile, jedes ein Unikat. Große und kleine Teller, Pasta Bowls, Müslischüsseln und Becher. Persönliche Lieferung in Hamburg möglich.">
+  <meta name="keywords" content="Keramik kaufen Hamburg, handgemachtes Geschirr Set, Keramikset 16 teilig, Töpferei Hamburg kaufen, nachhaltige Keramik Becher">
+  <meta name="author" content="Gwen's Pottery">
+  <meta property="og:title" content="Handgemachte Keramik kaufen | Gwen's Pottery Hamburg">
+  <meta property="og:description" content="16-teiliges Keramik-Set und einzelne Becher, handgefertigt in Hamburg. Jedes Stück ein Unikat, persönlich geliefert.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gwenspottery.de/produkte.html">
+  <link rel="canonical" href="https://gwenspottery.de/produkte.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================
+       VARIABLES & RESET
+    ======================== */
+    :root {
+      --bg:        #F5F0EB;
+      --primary:   #3D3935;
+      --accent:    #B87A5E;
+      --secondary: #8A9E8C;
+      --text:      #1C1917;
+      --muted:     #6B625A;
+      --white:     #FDFAF7;
+      --border:    #E2D9CF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.75;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      animation: pageEnter 0.9s ease both;
+    }
+
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ========================
+       LANGUAGE SYSTEM
+    ======================== */
+    [data-lang],
+    [data-lang-inline] { display: none; }
+
+    body[data-active-lang="de"] [data-lang="de"]           { display: block; }
+    body[data-active-lang="en"] [data-lang="en"]           { display: block; }
+    body[data-active-lang="de"] [data-lang-inline="de"]    { display: inline; }
+    body[data-active-lang="en"] [data-lang-inline="en"]    { display: inline; }
+
+    /* ========================
+       SCROLL REVEAL
+    ======================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ========================
+       HEADER & NAV
+    ======================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 240, 235, 0.92);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-bottom: 1px solid var(--border);
+      height: 80px;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: box-shadow 0.4s ease, backdrop-filter 0.4s ease, background 0.4s ease;
+    }
+    header.scrolled {
+      box-shadow: 0 2px 24px rgba(60, 50, 40, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(245, 240, 235, 0.88);
+    }
+
+    .logo svg {
+      height: 62px;
+      width: auto;
+      transition: transform 0.4s ease;
+    }
+    .logo:hover svg {
+      transform: rotate(3deg) scale(1.04);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.25s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+    nav a:hover { color: var(--accent); }
+    nav a:hover::after,
+    nav a.active::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    nav a.active { color: var(--accent); }
+
+    .lang-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      z-index: 0;
+    }
+    .lang-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .lang-btn:hover::before { transform: scaleX(1); }
+    .lang-btn:hover {
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* ========================
+       BUTTONS
+    ======================== */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+      cursor: pointer;
+      transition: color 0.35s ease;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+      z-index: -1;
+    }
+    .btn:hover::before { transform: scaleX(1); transform-origin: left; }
+    .btn:hover { color: var(--white); border-color: var(--primary); }
+
+    .btn-accent {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-accent::before { background: var(--accent); }
+    .btn-accent:hover { color: var(--white); border-color: var(--accent); }
+
+    /* ========================
+       LAYOUT UTILITIES
+    ======================== */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    section { padding: 4.5rem 0; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(184,122,94,0.3);
+      padding: 0.3rem 0.85rem;
+      margin-bottom: 1.75rem;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 300;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .img-box {
+      overflow: hidden;
+      background: var(--border);
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s ease;
+    }
+    .img-box:hover img { transform: scale(1.03); }
+
+    /* ========================
+       PAGE HERO (Produkte)
+    ======================== */
+    .page-hero {
+      padding: 3rem 0 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(184,122,94,0.06) 0%, transparent 65%);
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    .page-hero .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .page-hero p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 0;
+      line-height: 1.75;
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero-rule {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 1.25rem auto 0;
+      opacity: 0.5;
+    }
+
+    /* ========================
+       PRODUCT SECTIONS
+    ======================== */
+    .product-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      border-top: 1px solid var(--border);
+    }
+    .product-split.reverse {
+      direction: rtl;
+    }
+    .product-split.reverse > * {
+      direction: ltr;
+    }
+
+    .product-image-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+    .product-image-wrap:hover img { transform: scale(1.04); }
+
+    .product-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 3.5rem;
+      background: var(--white);
+    }
+
+    .price-display {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin: 1.25rem 0 0.4rem;
+    }
+    .price-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      font-weight: 300;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .price-unit {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .price-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .contents-list {
+      list-style: none;
+      margin: 1.1rem 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 1.5rem;
+    }
+    .contents-list li {
+      font-size: 0.84rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+      letter-spacing: 0.01em;
+    }
+    .contents-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+      top: 0.12em;
+    }
+
+    /* Becher Preise nebeneinander */
+    .becher-prices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.1rem 0 1.5rem;
+    }
+    .becher-price-card {
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .becher-price-card:hover {
+      border-color: var(--accent);
+      background: rgba(184,122,94,0.03);
+    }
+    .becher-price-card .label-small {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .becher-price-card .price-number {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+    }
+
+    /* Detail-Galerie (Set) */
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 1px;
+    }
+    .detail-grid-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .detail-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .detail-grid-item:hover img { transform: scale(1.06); }
+
+    /* Trennlinie Zitat */
+    .divider-strip {
+      background: var(--primary);
+      padding: 3.5rem 3rem;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .divider-strip::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(138,158,140,0.08) 0%, transparent 65%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    .divider-strip blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(253,250,247,0.85);
+      max-width: 720px;
+      margin: 0 auto 1rem;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+    .divider-strip cite {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-style: normal;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Back-Link */
+    .back-section {
+      padding: 2.5rem 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .back-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.25s ease, letter-spacing 0.3s ease;
+    }
+    .back-link:hover {
+      color: var(--accent);
+      letter-spacing: 0.24em;
+    }
+    .back-link::before { content: '← '; }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      background: var(--primary);
+      color: #9A928B;
+      text-align: center;
+      padding: 3rem 3rem 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(138,158,140,0.08) 0%, transparent 65%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+    footer a {
+      color: var(--accent);
+      transition: opacity 0.25s ease;
+    }
+    footer a:hover { opacity: 0.75; }
+    .footer-logo {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 1.5rem;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .footer-logo:hover { transform: rotate(-4deg) scale(1.06); }
+    footer p { position: relative; z-index: 1; }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 900px) {
+      .product-split {
+        grid-template-columns: 1fr;
+      }
+      .product-split.reverse { direction: ltr; }
+      .product-image-wrap { aspect-ratio: 4/3; }
+      .product-text { padding: 3.5rem 2.5rem; }
+      .detail-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 5rem 0; }
+      .container { padding: 0 2rem; }
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 110;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--primary);
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    header {
+      transition: box-shadow 0.4s ease, backdrop-filter 0.4s ease, background 0.4s ease, transform 0.35s ease;
+    }
+    header.header-hidden { transform: translateY(-100%); }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 60px;
+        padding: 0 1.25rem;
+        gap: 0;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo svg { height: 44px; width: 44px; }
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+      }
+      nav {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(245, 240, 235, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 105;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        border-top: none;
+        padding-top: 0;
+        width: 100%;
+      }
+      nav.nav-open { opacity: 1; pointer-events: auto; }
+      nav a { font-size: 0.85rem; letter-spacing: 0.18em; }
+      nav .nav-hide { display: inline; }
+      .page-hero { padding: 4rem 0 3rem; }
+      .product-text { padding: 2.5rem 1.25rem; }
+      .contents-list { grid-template-columns: 1fr; }
+      .becher-prices { grid-template-columns: 1fr; }
+      .container { padding: 0 1.25rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal, .reveal-scale { opacity: 1; transform: none; }
+    }
+
+    /* ========================
+       FILM GRAIN TEXTURE
+    ======================== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background-image: url("data:image/svg+xml,<svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      background-size: 180px 180px;
+      opacity: 0.027;
+      pointer-events: none;
+      z-index: 9001;
+      animation: grain 9s steps(10) infinite;
+    }
+    @keyframes grain {
+      0%,100% { transform: translate(0,0); }
+      10%     { transform: translate(-4%,-9%); }
+      20%     { transform: translate(-12%,4%); }
+      30%     { transform: translate(6%,-22%); }
+      40%     { transform: translate(-4%,22%); }
+      50%     { transform: translate(-12%,9%); }
+      60%     { transform: translate(13%,0%); }
+      70%     { transform: translate(0%,13%); }
+      80%     { transform: translate(3%,30%); }
+      90%     { transform: translate(-9%,9%); }
+    }
+
+    /* ========================
+       CUSTOM CURSOR
+    ======================== */
+    @media (pointer: fine) {
+      * { cursor: none !important; }
+      .cursor-dot {
+        width: 6px; height: 6px;
+        background: var(--accent);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      .cursor-ring {
+        width: 28px; height: 28px;
+        border: 1px solid rgba(184,122,94,0.4);
+        border-radius: 50%;
+        position: fixed;
+        top: 0; left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.4s ease, height 0.4s ease, border-color 0.4s ease;
+      }
+      .cursor-ring.on-link  { width: 48px; height: 48px; border-color: rgba(184,122,94,0.22); }
+      .cursor-ring.on-image { width: 78px; height: 78px; border-color: rgba(184,122,94,0.16); border-width: 1px; }
+    }
+
+    /* ========================
+       SCROLL PROGRESS BAR
+    ======================== */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 1.5px;
+      width: 100%;
+      background: linear-gradient(to right, var(--secondary), var(--accent));
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 202;
+      pointer-events: none;
+    }
+
+    /* ========================
+       MARQUEE TICKER
+    ======================== */
+    .marquee-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 0;
+      background: var(--white);
+      user-select: none;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 2.5rem;
+      white-space: nowrap;
+      animation: marquee-run 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    .marquee-track span {
+      font-size: 0.67rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-family: 'DM Sans', sans-serif;
+      opacity: 0.65;
+    }
+    .marquee-track .m-dot { color: var(--accent); opacity: 1; letter-spacing: 0; }
+    @keyframes marquee-run {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ========================
+       CSS SCROLL-DRIVEN PARALLAX
+    ======================== */
+    @supports (animation-timeline: view()) {
+      @keyframes img-parallax {
+        from { transform: scale(1.1) translateY(-5%); }
+        to   { transform: scale(1.1) translateY(5%);  }
+      }
+      .product-image-wrap img {
+        animation: img-parallax linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+        transition: none;
+      }
+      .product-image-wrap:hover img { transform: none; }
+      @keyframes detail-parallax {
+        from { transform: scale(1.09) translateY(-4%); }
+        to   { transform: scale(1.09) translateY(4%);  }
+      }
+      .detail-grid-item img {
+        animation: detail-parallax linear both;
+        animation-timeline: view();
+        animation-range: entry 0% exit 100%;
+        transition: none;
+      }
+      .detail-grid-item:hover img { transform: none; }
+    }
+
+    /* ========================
+       GALLERY HOVER LABELS
+    ======================== */
+    .detail-grid-item { position: relative; }
+    .detail-grid-item::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(28,25,23,0.68));
+      color: rgba(253,250,247,0.9);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 2.5rem 0.85rem 0.7rem;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.38s ease, transform 0.38s ease;
+      pointer-events: none;
+    }
+    .detail-grid-item:hover::after { opacity: 1; transform: translateY(0); }
+
+    /* ========================
+       PAGE TRANSITION
+    ======================== */
+    body { transition: opacity 0.45s ease; }
+    body.fade-out { opacity: 0 !important; }
+  </style>
+</head>
+
+<body data-active-lang="de">
+
+<!-- ======================== HEADER ======================== -->
+<header id="site-header">
+  <a href="index.html" class="logo" aria-label="Gwen's Pottery – Startseite">
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gwen's Pottery Logo">
+      <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+      <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+      <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+      <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+      <defs>
+        <path id="h-arc-top" d="M 31,110 A 79,79 0 0,1 189,110"/>
+        <path id="h-arc-bot" d="M 33,110 A 77,77 0 0,0 187,110"/>
+      </defs>
+      <text font-family="'DM Sans',sans-serif" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+        <textPath href="#h-arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+      </text>
+      <text font-family="'DM Sans',sans-serif" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+        <textPath href="#h-arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+      </text>
+      <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-style="italic" font-weight="300" fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+      <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="7" letter-spacing="3" fill="#4A6E58" text-anchor="middle" x="110" y="133">EST.  2025</text>
+    </svg>
+  </a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" aria-label="Hauptnavigation">
+    <a href="index.html">
+      <span data-lang-inline="de">Startseite</span>
+      <span data-lang-inline="en">Home</span>
+    </a>
+    <a href="produkte.html" class="active">
+      <span data-lang-inline="de">Produkte</span>
+      <span data-lang-inline="en">Products</span>
+    </a>
+    <a href="index.html#ueber-uns">
+      <span data-lang-inline="de">Über uns</span>
+      <span data-lang-inline="en">About</span>
+    </a>
+    <a href="index.html#kontakt">
+      <span data-lang-inline="de">Kontakt</span>
+      <span data-lang-inline="en">Contact</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" aria-label="Sprache wechseln">
+      <span data-lang-inline="de">EN</span>
+      <span data-lang-inline="en">DE</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ======================== PAGE HERO ======================== -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">
+        <span data-lang-inline="de">Handgefertigt in Hamburg</span>
+        <span data-lang-inline="en">Handcrafted in Hamburg</span>
+      </span>
+      <h1 class="reveal reveal-delay-1">
+        <span data-lang="de">Unsere <em>Produkte</em></span>
+        <span data-lang="en">Our <em>Products</em></span>
+      </h1>
+      <p class="reveal reveal-delay-2">
+        <span data-lang-inline="de">Jedes Stück entsteht in Handarbeit, mit Sorgfalt, Geduld und einem Gespür für das Wesentliche. Kein Stück gleicht dem anderen.</span>
+        <span data-lang-inline="en">Every piece is made by hand, with care, patience and a sense for the essentials. No two pieces are alike.</span>
+      </p>
+      <div class="page-hero-rule reveal reveal-delay-3"></div>
+    </div>
+  </div>
+
+  <!-- ======================== MARQUEE TICKER ======================== -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Handgemacht</span><span class="m-dot"> · </span>
+      <span>Hamburg</span><span class="m-dot"> · </span>
+      <span>Keramik</span><span class="m-dot"> · </span>
+      <span>Jedes Stück ein Unikat</span><span class="m-dot"> · </span>
+      <span>Olivgrüne Glasur</span><span class="m-dot"> · </span>
+      <span>Für vier Personen</span><span class="m-dot"> · </span>
+      <span>Persönlich geliefert in Hamburg</span><span class="m-dot"> · </span>
+      <span>Est. 2025</span><span class="m-dot"> · </span>
+      <!-- duplicate for seamless loop -->
+      <span>Handgemacht</span><span class="m-dot"> · </span>
+      <span>Hamburg</span><span class="m-dot"> · </span>
+      <span>Keramik</span><span class="m-dot"> · </span>
+      <span>Jedes Stück ein Unikat</span><span class="m-dot"> · </span>
+      <span>Olivgrüne Glasur</span><span class="m-dot"> · </span>
+      <span>Für vier Personen</span><span class="m-dot"> · </span>
+      <span>Persönlich geliefert in Hamburg</span><span class="m-dot"> · </span>
+      <span>Est. 2025</span><span class="m-dot"> · </span>
+    </div>
+  </div>
+
+  <!-- ======================== PRODUKT 1: DAS SET ======================== -->
+  <section id="das-set" aria-labelledby="set-heading">
+    <div class="product-split">
+
+      <!-- Bild links -->
+      <div class="product-image-wrap reveal-scale">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(3).jpeg"
+          alt="Das 16-teilige Keramik-Set von Gwen's Pottery — Teller und Schüsseln gestapelt auf Leinenstoff"
+          loading="eager"
+        >
+      </div>
+
+      <!-- Text rechts -->
+      <div class="product-text">
+        <span class="section-tag reveal">
+          <span data-lang-inline="de">Unser Bestseller</span>
+          <span data-lang-inline="en">Our Bestseller</span>
+        </span>
+
+        <h2 id="set-heading" class="reveal">
+          <span data-lang="de">Das 16-teilige<br><em>Keramik-Set</em></span>
+          <span data-lang="en">The 16-Piece<br><em>Ceramic Set</em></span>
+        </h2>
+
+        <p class="reveal">
+          <span data-lang-inline="de">Ein vollständiges Tischset für vier Personen, von Gwen persönlich getöpfert und in der charakteristischen olivgrünen Glasur gebrannt. Jedes Stück trägt die Spuren seiner Entstehung und wird so zum Unikat.</span>
+          <span data-lang-inline="en">A complete table set for four, hand-thrown by Gwen and fired in the characteristic olive green glaze. Each piece carries the traces of its making, turning it into a one-of-a-kind object.</span>
+        </p>
+
+        <ul class="contents-list reveal">
+          <li>
+            <span data-lang-inline="de">4 × Großer Teller</span>
+            <span data-lang-inline="en">4 × Large Plate</span>
+          </li>
+          <li>
+            <span data-lang-inline="de">4 × Kleiner Teller</span>
+            <span data-lang-inline="en">4 × Small Plate</span>
+          </li>
+          <li>
+            <span data-lang-inline="de">4 × Pasta Bowl</span>
+            <span data-lang-inline="en">4 × Pasta Bowl</span>
+          </li>
+          <li>
+            <span data-lang-inline="de">4 × Müslischüssel</span>
+            <span data-lang-inline="en">4 × Cereal Bowl</span>
+          </li>
+        </ul>
+
+        <div class="price-display reveal">
+          <span class="price-number">450</span>
+          <span class="price-unit">€</span>
+        </div>
+        <p class="price-note reveal">
+          <span data-lang-inline="de">16 Teile im Set · In Hamburg liefere ich persönlich</span>
+          <span data-lang-inline="en">16 pieces included · Personal delivery within Hamburg</span>
+        </p>
+
+        <div class="reveal">
+          <a href="mailto:info@gwenspottery.de?subject=Anfrage%3A%2016%20teiliges%20Keramikset&body=Hallo%20Gwen%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20das%2016%20teilige%20Keramikset.%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn">
+            <span data-lang-inline="de">Jetzt anfragen →</span>
+            <span data-lang-inline="en">Enquire now →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail-Galerie der Set-Komponenten -->
+    <div class="detail-grid">
+      <div class="detail-grid-item reveal" data-label="Das Set">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(6).jpeg"
+          alt="Vollständiges Keramik-Set arrangiert auf Leinenstoff"
+          loading="lazy"
+        >
+      </div>
+      <div class="detail-grid-item reveal reveal-delay-1" data-label="Teller">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(2).jpeg"
+          alt="Großer und kleiner Teller aus dem Keramik-Set"
+          loading="lazy"
+        >
+      </div>
+      <div class="detail-grid-item reveal reveal-delay-2" data-label="Schüsseln">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(1).jpeg"
+          alt="Pasta Bowl und Müslischüssel aus dem Set"
+          loading="lazy"
+        >
+      </div>
+      <div class="detail-grid-item reveal reveal-delay-3" data-label="Müslischüsseln">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(4).jpeg"
+          alt="Vier gestapelte Müslischüsseln aus Keramik"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== DIVIDER ======================== -->
+  <div class="divider-strip">
+    <blockquote class="reveal">
+      <span data-lang-inline="de">„Keramik, die mit dir altert. Nicht trotzdem schön, sondern gerade deswegen."</span>
+      <span data-lang-inline="en">"Ceramics that age with you. Not beautiful despite it, but because of it."</span>
+    </blockquote>
+    <cite class="reveal reveal-delay-1">Gwen's Pottery · Hamburg</cite>
+  </div>
+
+  <!-- ======================== PRODUKT 2: BECHER ======================== -->
+  <section id="die-becher" aria-labelledby="becher-heading">
+    <div class="product-split reverse">
+
+      <!-- Bild rechts (durch reverse) -->
+      <div class="product-image-wrap reveal-scale">
+        <img
+          src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21.jpeg"
+          alt="Kleiner und großer Keramikbecher von Gwen's Pottery in Olivgrün auf Leinenstoff"
+          loading="lazy"
+        >
+      </div>
+
+      <!-- Text links (durch reverse) -->
+      <div class="product-text">
+        <span class="section-tag reveal">
+          <span data-lang-inline="de">Einzeln erhältlich</span>
+          <span data-lang-inline="en">Available individually</span>
+        </span>
+
+        <h2 id="becher-heading" class="reveal">
+          <span data-lang="de">Die <em>Becher</em></span>
+          <span data-lang="en">The <em>Mugs</em></span>
+        </h2>
+
+        <p class="reveal">
+          <span data-lang-inline="de">Die Becher begleiten jeden Morgen beim Kaffee und jeden Abend beim Tee. Sie liegen angenehm in der Hand und passen zu jedem Ritual. Erhältlich in zwei Größen, beide von Gwen persönlich in der olivgrünen Glasur gebrannt.</span>
+          <span data-lang-inline="en">These mugs are there for your morning coffee and your evening tea. They fit comfortably in the hand and suit any ritual. Available in two sizes, both fired by Gwen personally in the olive green glaze.</span>
+        </p>
+
+        <div class="becher-prices reveal">
+          <div class="becher-price-card">
+            <span class="label-small">
+              <span data-lang-inline="de">Kleiner Becher</span>
+              <span data-lang-inline="en">Small Mug</span>
+            </span>
+            <div class="price-display" style="justify-content:center; margin: 0;">
+              <span class="price-number">15</span>
+              <span class="price-unit">€</span>
+            </div>
+          </div>
+          <div class="becher-price-card">
+            <span class="label-small">
+              <span data-lang-inline="de">Großer Becher</span>
+              <span data-lang-inline="en">Large Mug</span>
+            </span>
+            <div class="price-display" style="justify-content:center; margin: 0;">
+              <span class="price-number">20</span>
+              <span class="price-unit">€</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="price-note reveal">
+          <span data-lang-inline="de">Von Hand gefertigt · jeder Becher ein Unikat · In Hamburg persönlich lieferbar</span>
+          <span data-lang-inline="en">Handcrafted · every mug a one of a kind · personal delivery in Hamburg</span>
+        </p>
+
+        <div class="reveal">
+          <a href="mailto:info@gwenspottery.de?subject=Anfrage%3A%20Becher&body=Hallo%20Gwen%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20einen%20Becher%20(bitte%20Gr%C3%B6%C3%9Fe%20angeben).%0A%0AMit%20freundlichen%20Gr%C3%BC%C3%9Fen" class="btn btn-accent">
+            <span data-lang-inline="de">Jetzt anfragen →</span>
+            <span data-lang-inline="en">Enquire now →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== ZURÜCK ======================== -->
+  <div class="back-section">
+    <a href="index.html" class="back-link reveal">
+      <span data-lang-inline="de">Zurück zur Startseite</span>
+      <span data-lang-inline="en">Back to home</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <svg class="footer-logo" viewBox="0 0 220 220" height="64" width="64" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Gwen's Pottery Logo">
+    <circle cx="110" cy="110" r="100" fill="none" stroke="#7DB894" stroke-width="1.2"/>
+    <circle cx="110" cy="110" r="91"  fill="none" stroke="#7DB894" stroke-width="0.5"/>
+    <polygon points="110,5  115,10  110,15  105,10" fill="#7DB894"/>
+    <polygon points="110,205  115,210  110,215  105,210" fill="#7DB894"/>
+    <defs>
+      <path id="f-arc-top" d="M 31,110 A 79,79 0 0,1 189,110"/>
+      <path id="f-arc-bot" d="M 33,110 A 77,77 0 0,0 187,110"/>
+    </defs>
+    <text font-family="'DM Sans',sans-serif" font-size="9" letter-spacing="4" fill="#C8DDD0" text-anchor="middle">
+      <textPath href="#f-arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+    </text>
+    <text font-family="'DM Sans',sans-serif" font-size="7.5" letter-spacing="3" fill="#8FBA9C" text-anchor="middle">
+      <textPath href="#f-arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+    </text>
+    <line x1="78" y1="97" x2="142" y2="97" stroke="#7DB894" stroke-width="0.6"/>
+    <text font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-style="italic" font-weight="300" fill="#E8F0EC" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+    <line x1="78" y1="122" x2="142" y2="122" stroke="#7DB894" stroke-width="0.6"/>
+    <text font-family="'DM Sans',sans-serif" font-size="7" letter-spacing="3" fill="#8FBA9C" text-anchor="middle" x="110" y="133">EST.  2025</text>
+  </svg>
+  <p>
+    &copy; 2025 Gwen's Pottery &middot; Hamburg &middot;
+    <a href="index.html#impressum">Impressum</a>
+  </p>
+</footer>
+
+<script>
+  // ========================
+  // SPRACHE
+  // ========================
+  function toggleLang() {
+    const body = document.body;
+    const cur = body.getAttribute('data-active-lang');
+    body.setAttribute('data-active-lang', cur === 'de' ? 'en' : 'de');
+    document.documentElement.lang = cur === 'de' ? 'en' : 'de';
+  }
+
+  // ========================
+  // SCROLL PROGRESS BAR
+  // ========================
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+
+  // ========================
+  // HAMBURGER MENÜ
+  // ========================
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mainNav = document.getElementById('main-nav');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('nav-open');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('nav-open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ========================
+  // HEADER + PROGRESS SCROLL + HIDE/SHOW
+  // ========================
+  const header = document.getElementById('site-header');
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateHeader() {
+    const currentY = window.scrollY;
+    header.classList.toggle('scrolled', currentY > 40);
+    const pct = currentY / Math.max(1, document.body.scrollHeight - window.innerHeight);
+    progressBar.style.transform = `scaleX(${pct})`;
+
+    if (currentY > 120 && currentY > lastScrollY) {
+      header.classList.add('header-hidden');
+    } else {
+      header.classList.remove('header-hidden');
+    }
+    lastScrollY = currentY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ========================
+  // SCROLL REVEAL
+  // ========================
+  const revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+  // ========================
+  // CUSTOM CURSOR (nur Maus-Geräte)
+  // ========================
+  if (window.matchMedia('(pointer: fine)').matches) {
+    const dot  = document.createElement('div');
+    const ring = document.createElement('div');
+    dot.className  = 'cursor-dot';
+    ring.className = 'cursor-ring';
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    let mx = -200, my = -200, rx = -200, ry = -200;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    });
+
+    (function lerpRing() {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(lerpRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('on-link'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('on-link'));
+    });
+    document.querySelectorAll('.product-image-wrap, .detail-grid-item, .img-box').forEach(el => {
+      el.addEventListener('mouseenter', () => { ring.classList.remove('on-link'); ring.classList.add('on-image'); });
+      el.addEventListener('mouseleave', () => ring.classList.remove('on-image'));
+    });
+  }
+
+  // ========================
+  // MAGNETIC BUTTONS
+  // ========================
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left  - r.width  / 2) * 0.28;
+      const y = (e.clientY - r.top   - r.height / 2) * 0.36;
+      btn.style.transition = 'transform 0.1s ease';
+      btn.style.transform  = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transition = 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
+      btn.style.transform  = 'translate(0, 0)';
+    });
+  });
+
+  // ========================
+  // PREIS-COUNTER
+  // ========================
+  document.querySelectorAll('.price-number').forEach(el => {
+    const target = parseInt(el.textContent);
+    if (!target || isNaN(target)) return;
+    el.textContent = '0';
+    let done = false;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !done) {
+          done = true;
+          const dur   = target > 50 ? 1300 : 800;
+          const start = performance.now();
+          requestAnimationFrame(function tick(now) {
+            const t     = Math.min((now - start) / dur, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            el.textContent = Math.round(eased * target);
+            if (t < 1) requestAnimationFrame(tick);
+          });
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.6 });
+    obs.observe(el);
+  });
+
+  // ========================
+  // PAGE FADE TRANSITION
+  // ========================
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      setTimeout(() => { window.location.href = href; }, 420);
+    });
+  });
+  window.addEventListener('pageshow', () => document.body.classList.remove('fade-out'));
+</script>
+
+</body>
+</html>

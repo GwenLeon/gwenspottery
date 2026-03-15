@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handgefertigte Keramik aus Hamburg | Gwen's Pottery</title>
+  <meta name="description" content="Gwen's Pottery – Handgemachte Keramik-Sets aus Hamburg. Jedes Stück ein Unikat, gefertigt mit Sorgfalt und Liebe zum Detail. Nachhaltig, einzigartig, zeitlos.">
+  <meta name="keywords" content="handgemachte Keramik Hamburg, Töpferei Hamburg, nachhaltiges Geschirr, Keramik Sets, handgefertigte Keramik">
+  <meta name="author" content="Gwen's Pottery">
+  <meta property="og:title" content="Handgefertigte Keramik aus Hamburg | Gwen's Pottery">
+  <meta property="og:description" content="Einzigartige Keramik-Sets aus Hamburg. Handgemacht, nachhaltig, zeitlos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gwenspottery.de">
+  <link rel="canonical" href="https://gwenspottery.de">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================
+       VARIABLES & RESET
+    ======================== */
+    :root {
+      --bg:        #F5F0EB;
+      --primary:   #3D3935;
+      --accent:    #B87A5E;
+      --secondary: #8A9E8C;
+      --text:      #1C1917;
+      --muted:     #6B625A;
+      --white:     #FDFAF7;
+      --border:    #E2D9CF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.75;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      animation: pageEnter 0.9s ease both;
+    }
+
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ========================
+       LANGUAGE SYSTEM
+    ======================== */
+    [data-lang],
+    [data-lang-inline] { display: none; }
+
+    body[data-active-lang="de"] [data-lang="de"]           { display: block; }
+    body[data-active-lang="en"] [data-lang="en"]           { display: block; }
+    body[data-active-lang="de"] [data-lang-inline="de"]    { display: inline; }
+    body[data-active-lang="en"] [data-lang-inline="en"]    { display: inline; }
+
+    /* ========================
+       SCROLL REVEAL
+    ======================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ========================
+       HEADER & NAV
+    ======================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 240, 235, 0.92);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-bottom: 1px solid var(--border);
+      height: 80px;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: box-shadow 0.4s ease, backdrop-filter 0.4s ease, background 0.4s ease;
+    }
+    header.scrolled {
+      box-shadow: 0 2px 24px rgba(60, 50, 40, 0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(245, 240, 235, 0.88);
+    }
+
+    .logo svg {
+      height: 62px;
+      width: auto;
+      transition: transform 0.4s ease;
+    }
+    .logo:hover svg {
+      transform: rotate(3deg) scale(1.04);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.25s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+    nav a:hover { color: var(--accent); }
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .lang-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      z-index: 0;
+    }
+    .lang-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .lang-btn:hover::before { transform: scaleX(1); }
+    .lang-btn:hover {
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* ========================
+       HAMBURGER MENU (MOBILE)
+    ======================== */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: absolute;
+      right: 1.25rem;
+      top: 1.5rem;
+      z-index: 110;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--primary);
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* ========================
+       HEADER HIDE ON SCROLL
+    ======================== */
+    header {
+      transition: box-shadow 0.4s ease, backdrop-filter 0.4s ease, background 0.4s ease, transform 0.35s ease;
+    }
+    header.header-hidden {
+      transform: translateY(-100%);
+    }
+
+    /* ========================
+       SCROLL MARGIN (Anker-Offset)
+    ======================== */
+    section[id] {
+      scroll-margin-top: 90px;
+    }
+
+    /* ========================
+       HERO
+    ======================== */
+    .hero {
+      min-height: max(55vw, 65vh);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Organischer Hintergrund-Blob */
+    .hero-blob {
+      position: absolute;
+      width: 520px;
+      height: 480px;
+      background: radial-gradient(ellipse, rgba(184,122,94,0.07) 0%, transparent 68%);
+      border-radius: 62% 38% 54% 46% / 48% 57% 43% 52%;
+      top: -80px;
+      left: -100px;
+      pointer-events: none;
+      animation: blobDrift 16s ease-in-out infinite;
+      z-index: 0;
+    }
+    .hero-blob-2 {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(ellipse, rgba(138,158,140,0.06) 0%, transparent 68%);
+      border-radius: 45% 55% 38% 62% / 55% 40% 60% 45%;
+      bottom: -40px;
+      left: 30%;
+      pointer-events: none;
+      animation: blobDrift 20s ease-in-out infinite reverse;
+      z-index: 0;
+    }
+
+    @keyframes blobDrift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); border-radius: 62% 38% 54% 46% / 48% 57% 43% 52%; }
+      33%       { transform: translate(18px, -22px) rotate(4deg); border-radius: 50% 50% 44% 56% / 56% 44% 56% 44%; }
+      66%       { transform: translate(-12px, 12px) rotate(-3deg); border-radius: 56% 44% 62% 38% / 38% 62% 38% 62%; }
+    }
+
+    .hero-content {
+      padding: 7rem 4rem 7rem 5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image {
+      height: 100%;
+      min-height: max(55vw, 65vh);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+      display: block;
+      animation: kenBurns 20s ease-in-out infinite alternate;
+      transform-origin: center;
+    }
+
+    @keyframes kenBurns {
+      from { transform: scale(1.02) translate(0, 0); }
+      to   { transform: scale(1.07) translate(-1.2%, -1%); }
+    }
+
+    /* Sanfte Überlagerung am Übergang Hero → Inhalt */
+    .hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(245,240,235,0.12) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.75rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--primary);
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 460px;
+      margin: 0 0 2.75rem;
+      line-height: 1.85;
+    }
+
+    /* ========================
+       BUTTONS
+    ======================== */
+    .btn {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      position: relative;
+      overflow: hidden;
+      z-index: 0;
+      cursor: pointer;
+      transition: color 0.35s ease;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+      z-index: -1;
+    }
+    .btn:hover::before { transform: scaleX(1); }
+    .btn:hover { color: var(--white); }
+
+    .btn-filled {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--white);
+    }
+    .btn-filled::before { background: #9E6449; }
+    .btn-filled:hover { border-color: #9E6449; color: var(--white); }
+
+    /* ========================
+       DIVIDER
+    ======================== */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 1.5rem;
+    }
+
+    /* ========================
+       SECTION BASE
+    ======================== */
+    section { padding: 7rem 3rem; }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    /* Organisches Blatt-Akzent neben Überschriften */
+    .leaf-accent {
+      display: inline-block;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+      opacity: 0.45;
+      transition: opacity 0.3s ease, transform 0.5s ease;
+    }
+    *:hover > .leaf-accent,
+    h2:hover .leaf-accent {
+      opacity: 0.7;
+      transform: rotate(8deg);
+    }
+
+    /* ========================
+       IMAGE BOXES
+    ======================== */
+    .img-box {
+      background: linear-gradient(145deg, #DDD4C8, #C4B9AF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 65%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .img-box:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-img img        { object-position: 55% 68%; }
+    .product-img-tall img { object-position: center 65%; }
+    .product-img-sq img   { object-position: center 68%; }
+    .contact-img img      { object-position: center 50%; }
+
+    .img-box-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9A8A80;
+    }
+
+    /* ========================
+       ORGANISCHE WELLENLINIE
+    ======================== */
+    .wave-divider {
+      overflow: hidden;
+      line-height: 0;
+      margin: 0;
+      padding: 0;
+      height: 48px;
+      pointer-events: none;
+    }
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ========================
+       ÜBER UNS
+    ======================== */
+    #ueber-uns {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dezenter Hintergrund-Akzent */
+    #ueber-uns::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(184,122,94,0.04) 0%, transparent 70%);
+      right: -200px;
+      top: -100px;
+      pointer-events: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .section-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      font-size: 0.97rem;
+    }
+
+    .about-img {
+      aspect-ratio: 4/5;
+    }
+
+    /* ========================
+       PHILOSOPHIE
+    ======================== */
+    #philosophie {
+      background: var(--primary);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Organische Hintergrund-Kugeln */
+    .philosophy-orb {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(138,158,140,0.14) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .philosophy-orb-1 {
+      width: 560px;
+      height: 560px;
+      top: -160px;
+      right: -160px;
+    }
+    .philosophy-orb-2 {
+      width: 380px;
+      height: 380px;
+      bottom: -120px;
+      left: -80px;
+      background: radial-gradient(ellipse, rgba(184,122,94,0.09) 0%, transparent 65%);
+    }
+
+    #philosophie h2 {
+      color: var(--white);
+    }
+
+    .philosophy-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1.5;
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    /* Dekorative Anführungszeichen */
+    .blockquote::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.6em;
+      left: -0.4em;
+      font-size: 4em;
+      color: rgba(184,122,94,0.12);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    #philosophie p {
+      color: #C4BAB2;
+      font-size: 0.97rem;
+      line-height: 1.9;
+    }
+
+    #philosophie .eyebrow {
+      color: #8A9E8C;
+    }
+
+    /* ========================
+       PRODUKTE
+    ======================== */
+    #produkte {
+      background: var(--bg);
+    }
+
+    .products-intro {
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto 5rem;
+    }
+    .products-intro p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 5rem;
+      background: var(--border);
+    }
+
+    .feature {
+      background: var(--white);
+      padding: 2.75rem 2.25rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(60, 50, 40, 0.09);
+      z-index: 1;
+    }
+    .feature::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+    .feature:hover::after { transform: scaleX(1); }
+
+    /* Organisches Hintergrund-Element in Feature-Karten */
+    .feature::before {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(184,122,94,0.05) 0%, transparent 70%);
+      bottom: -30px;
+      right: -20px;
+      transition: transform 0.5s ease;
+      pointer-events: none;
+    }
+    .feature:hover::before { transform: scale(1.5); }
+
+    .feature-line {
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+      transition: width 0.4s ease;
+    }
+    .feature:hover .feature-line { width: 48px; }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-img-tall { aspect-ratio: 3/4; }
+    .product-img-sq   { aspect-ratio: 1/1;  }
+
+    .product-caption {
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.25s ease;
+    }
+    .product-grid > div:hover .product-caption { color: var(--accent); }
+
+    /* ========================
+       KONTAKT
+    ======================== */
+    #kontakt {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-text p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .contact-row span.label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-row a {
+      font-size: 0.95rem;
+      color: var(--primary);
+      transition: color 0.25s ease, letter-spacing 0.3s ease;
+    }
+    .contact-row a:hover {
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .contact-img {
+      aspect-ratio: 4/5;
+    }
+
+    /* ========================
+       IMPRESSUM
+    ======================== */
+    #impressum {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem;
+    }
+
+    #impressum h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    #impressum p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    #impressum a { color: var(--accent); }
+
+    /* ========================
+       FOOTER
+    ======================== */
+    footer {
+      background: var(--primary);
+      color: #9A928B;
+      text-align: center;
+      padding: 3rem 3rem 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Organischer Akzent im Footer */
+    footer::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(138,158,140,0.08) 0%, transparent 65%);
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    footer a {
+      color: var(--accent);
+      transition: opacity 0.25s ease;
+    }
+    footer a:hover { opacity: 0.75; }
+
+    .footer-logo {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto 1.5rem;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .footer-logo:hover { transform: rotate(-4deg) scale(1.06); }
+
+    footer p { position: relative; z-index: 1; }
+
+    /* ========================
+       RESPONSIVE
+    ======================== */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-content {
+        padding: 5rem 2rem 3rem;
+        text-align: center;
+      }
+      .hero p { margin: 0 auto 2.5rem; }
+      .hero-image {
+        min-height: 55vw;
+        max-height: 480px;
+      }
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .features { grid-template-columns: 1fr; }
+      .product-grid { grid-template-columns: 1fr; }
+      section { padding: 5rem 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        height: 60px;
+        padding: 0 1.25rem;
+        gap: 0;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo svg {
+        height: 44px;
+        width: 44px;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        position: static;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(245, 240, 235, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 105;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        border-top: none;
+        padding-top: 0;
+        width: 100%;
+      }
+      nav.nav-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      nav a {
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+      }
+      nav .nav-hide { display: inline; }
+
+      section[id] { scroll-margin-top: 70px; }
+      .hero-content { padding: 4rem 1.25rem 2.5rem; }
+      section { padding: 4rem 1.25rem; }
+      #impressum { padding: 3rem 1.25rem; }
+    }
+
+    /* Reduced motion — alle Animationen respektvoll deaktivieren */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal, .reveal-scale { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body data-active-lang="de">
+
+<!-- ======================== HEADER ======================== -->
+<header id="site-header">
+  <a href="#" class="logo" aria-label="Gwen's Pottery – Startseite">
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gwen's Pottery Logo">
+      <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+      <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+      <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+      <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+      <defs>
+        <path id="h-arc-top" d="M 31,110 A 79,79 0 0,1 189,110"/>
+        <path id="h-arc-bot" d="M 33,110 A 77,77 0 0,0 187,110"/>
+      </defs>
+      <text font-family="'DM Sans',sans-serif" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+        <textPath href="#h-arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+      </text>
+      <text font-family="'DM Sans',sans-serif" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+        <textPath href="#h-arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+      </text>
+      <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-style="italic" font-weight="300" fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+      <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="7" letter-spacing="3" fill="#4A6E58" text-anchor="middle" x="110" y="133">EST.  2025</text>
+    </svg>
+  </a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" aria-label="Hauptnavigation">
+    <a href="#">
+      <span data-lang-inline="de">Startseite</span>
+      <span data-lang-inline="en">Home</span>
+    </a>
+    <a href="produkte.html">
+      <span data-lang-inline="de">Produkte</span>
+      <span data-lang-inline="en">Products</span>
+    </a>
+    <a href="#ueber-uns">
+      <span data-lang-inline="de">Über uns</span>
+      <span data-lang-inline="en">About</span>
+    </a>
+    <a href="#kontakt">
+      <span data-lang-inline="de">Kontakt</span>
+      <span data-lang-inline="en">Contact</span>
+    </a>
+    <button class="lang-btn" onclick="toggleLang()" aria-label="Sprache wechseln">
+      <span data-lang-inline="de">EN</span>
+      <span data-lang-inline="en">DE</span>
+    </button>
+  </nav>
+</header>
+
+<!-- ======================== HERO ======================== -->
+<main>
+  <section class="hero" aria-label="Startseite">
+    <!-- Organische Hintergrundblobs -->
+    <div class="hero-blob" aria-hidden="true"></div>
+    <div class="hero-blob-2" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="eyebrow">
+        Hamburg &middot;
+        <span data-lang-inline="de">Handgemacht seit 2025</span>
+        <span data-lang-inline="en">Handmade since 2025</span>
+      </span>
+
+      <h1>
+        <span data-lang="de">Keramik, die<br><em>Geschichten</em> erzählt</span>
+        <span data-lang="en">Ceramics that<br><em>tell stories</em></span>
+      </h1>
+
+      <p>
+        <span data-lang="de">Jedes Stück entsteht in kleinen Chargen — mit der Hand geformt, glasiert und gebrannt. Kein Stück gleicht dem anderen.</span>
+        <span data-lang="en">Every piece is made in small batches — hand-formed, glazed and fired. No two pieces are ever alike.</span>
+      </p>
+
+      <a href="#produkte" class="btn btn-filled">
+        <span data-lang-inline="de">Kollektion entdecken</span>
+        <span data-lang-inline="en">Discover the collection</span>
+      </a>
+    </div>
+    <div class="hero-image">
+      <img
+        src="Bilder/hero_keramik.jpg"
+        alt="Handgefertigtes Keramik-Set von Gwen's Pottery — Teller und Schüsseln gestapelt"
+        loading="eager"
+      >
+    </div>
+  </section>
+
+  <!-- Organische Wellenlinie als Übergang -->
+  <div class="wave-divider" style="background: var(--bg);" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="#FDFAF7"/>
+    </svg>
+  </div>
+
+  <!-- ======================== ÜBER UNS ======================== -->
+  <section id="ueber-uns" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-tag">
+            <span data-lang-inline="de">Über uns</span>
+            <span data-lang-inline="en">About us</span>
+          </span>
+          <h2 id="about-heading">
+            <span data-lang="de">Eine Boutique,<br>gegründet auf Handwerk</span>
+            <span data-lang="en">A boutique<br>built on craft</span>
+            <!-- Botanisches SVG-Blatt -->
+            <svg class="leaf-accent" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2 C12 2 4 7 4 14 C4 18.4 7.6 22 12 22 C16.4 22 20 18.4 20 14 C20 7 12 2 12 2 Z" stroke="#8A9E8C" stroke-width="1" fill="none"/>
+              <path d="M12 22 L12 8" stroke="#8A9E8C" stroke-width="0.8" stroke-linecap="round"/>
+              <path d="M12 14 C12 14 8 11 6 9" stroke="#8A9E8C" stroke-width="0.7" stroke-linecap="round"/>
+              <path d="M12 17 C12 17 16 14 18 12" stroke="#8A9E8C" stroke-width="0.7" stroke-linecap="round"/>
+            </svg>
+          </h2>
+          <p data-lang="de">Wir sind eine kleine Keramik-Boutique, die sich der Herstellung von einzigartigen Stücken widmet. Unsere Glasuren, Formen und Scherben entwickeln wir in eigener Handarbeit, wobei jede Kollektion in begrenzter Menge entsteht.</p>
+          <p data-lang="en">We are a small ceramic boutique dedicated to creating unique pieces. Our glazes, forms and shards are developed entirely by hand, with each collection produced in limited quantities.</p>
+          <p data-lang="de">So garantieren wir die Exklusivität und Einzigartigkeit jedes einzelnen Produkts — gefertigt mit viel Sorgfalt und Liebe zum Detail.</p>
+          <p data-lang="en">This guarantees the exclusivity and uniqueness of every product — crafted with great care and attention to detail.</p>
+          <a href="#kontakt" class="btn" style="margin-top:1.75rem; display:inline-block;">
+            <span data-lang-inline="de">Kontakt aufnehmen</span>
+            <span data-lang-inline="en">Get in touch</span>
+          </a>
+        </div>
+        <div class="img-box about-img reveal reveal-delay-2 reveal-scale">
+          <img
+            src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(1).jpeg"
+            alt="Zwei handgefertigte Keramikschalen von Gwen's Pottery auf Leinenstoff"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PHILOSOPHIE ======================== -->
+  <section id="philosophie" aria-labelledby="philosophy-heading">
+    <!-- Organische Hintergrundkugeln -->
+    <div class="philosophy-orb philosophy-orb-1" aria-hidden="true"></div>
+    <div class="philosophy-orb philosophy-orb-2" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="philosophy-inner reveal">
+        <span class="eyebrow">
+          <span data-lang-inline="de">Philosophie &amp; Nachhaltigkeit</span>
+          <span data-lang-inline="en">Philosophy &amp; Sustainability</span>
+        </span>
+        <div class="divider"></div>
+        <h2 id="philosophy-heading">
+          <span data-lang="de">Qualität &amp;<br>Authentizität</span>
+          <span data-lang="en">Quality &amp;<br>Authenticity</span>
+        </h2>
+        <p class="blockquote">
+          <span data-lang="de">Kein Stück funktional,<br>das nicht auch kunstvoll ist.</span>
+          <span data-lang="en">No piece functional<br>that isn't also artful.</span>
+        </p>
+        <p data-lang="de">Wir verwenden natürliche Materialien und setzen auf traditionelle Handwerkskunst, um außergewöhnliche Keramikwaren zu schaffen. Jedes Stück zeichnet sich durch individuelles Design und hohe Langlebigkeit aus — für den Alltag und darüber hinaus.</p>
+        <p data-lang="en">We use natural materials and rely on traditional craftsmanship to create extraordinary ceramic goods. Each piece features individual design and high durability — for everyday use and beyond.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organische Wellenlinie als Übergang -->
+  <div class="wave-divider" style="background: var(--primary);" aria-hidden="true">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,16 C360,48 720,0 1080,32 C1260,44 1380,20 1440,16 L1440,48 L0,48 Z" fill="#F5F0EB"/>
+    </svg>
+  </div>
+
+  <!-- ======================== PRODUKTE ======================== -->
+  <section id="produkte" aria-labelledby="products-heading">
+    <div class="container">
+
+      <div class="products-intro reveal">
+        <span class="section-tag">
+          <span data-lang-inline="de">Die Produkte</span>
+          <span data-lang-inline="en">The Products</span>
+        </span>
+        <h2 id="products-heading">
+          <span data-lang="de">Sets, die bleiben</span>
+          <span data-lang="en">Sets made to last</span>
+        </h2>
+        <p data-lang="de">Aus Gründen der Nachhaltigkeit erfolgt der Verkauf ausschließlich in Sets — so entsteht ein stimmiges Ganzes für deinen Tisch.</p>
+        <p data-lang="en">For sustainability reasons, we sell exclusively in sets — creating a harmonious whole for your table.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature reveal">
+          <div class="feature-line"></div>
+          <h3>
+            <span data-lang-inline="de">Einzigartig</span>
+            <span data-lang-inline="en">One of a kind</span>
+          </h3>
+          <p data-lang="de">Jedes Stück wird in kleinen Chargen hergestellt, sodass kein Produkt dem anderen gleicht.</p>
+          <p data-lang="en">Each piece is produced in small batches, so no two products are ever identical.</p>
+        </div>
+        <div class="feature reveal reveal-delay-1">
+          <div class="feature-line"></div>
+          <h3>
+            <span data-lang-inline="de">Handgemacht</span>
+            <span data-lang-inline="en">Handmade</span>
+          </h3>
+          <p data-lang="de">Vom Entwurf bis zur Glasur wird jedes Teil mit größter Sorgfalt von Hand gefertigt.</p>
+          <p data-lang="en">From design to glaze, every piece is carefully crafted by hand.</p>
+        </div>
+        <div class="feature reveal reveal-delay-2">
+          <div class="feature-line"></div>
+          <h3>
+            <span data-lang-inline="de">Geschirrspülfest</span>
+            <span data-lang-inline="en">Dishwasher safe</span>
+          </h3>
+          <p data-lang="de">Trotz ihrer handgefertigten Natur sind unsere Keramiken robust und alltagstauglich.</p>
+          <p data-lang="en">Despite their handcrafted nature, our ceramics are durable and suited for everyday life.</p>
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <div class="reveal">
+          <div class="img-box product-img-tall">
+            <img
+              src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21.jpeg"
+              alt="Zwei handgefertigte Keramikbecher von Gwen's Pottery in Olivgrün"
+              loading="lazy"
+            >
+          </div>
+          <p class="product-caption">
+            <span data-lang-inline="de">Becher Set · Handgefertigt</span>
+            <span data-lang-inline="en">Cup Set · Handmade</span>
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="img-box product-img-sq">
+            <img
+              src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(6).jpeg"
+              alt="Vollständiges Keramik-Set von Gwen's Pottery — Teller, Schüsseln arrangiert auf Leinenstoff"
+              loading="lazy"
+            >
+          </div>
+          <p class="product-caption">
+            <span data-lang-inline="de">Teller Set · Nachhaltig</span>
+            <span data-lang-inline="en">Plate Set · Sustainable</span>
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 3.5rem;" class="reveal">
+        <a href="produkte.html" class="btn">
+          <span data-lang-inline="de">Alle Produkte &amp; Preise →</span>
+          <span data-lang-inline="en">All Products &amp; Prices →</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== KONTAKT ======================== -->
+  <section id="kontakt" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <span class="section-tag">Kontakt</span>
+          <h2 id="contact-heading">
+            <span data-lang="de">Lass uns<br>sprechen</span>
+            <span data-lang="en">Let's<br>talk</span>
+          </h2>
+          <p data-lang="de">Bei Interesse an unseren Produkten oder individuellen Bestellungen freuen wir uns auf deine Nachricht. Teile uns deine Wünsche mit — wir finden gemeinsam die passende Lösung.</p>
+          <p data-lang="en">If you are interested in our products or a custom order, we look forward to your message. Share your wishes with us — we will find the right solution together.</p>
+
+          <div class="contact-details">
+            <div class="contact-row">
+              <span class="label">
+                <span data-lang-inline="de">Telefon</span>
+                <span data-lang-inline="en">Phone</span>
+              </span>
+              <a href="tel:+491626425430">+49 162 6425430</a>
+            </div>
+            <div class="contact-row">
+              <span class="label">E-Mail</span>
+              <a href="mailto:info@gwenspottery.de">info@gwenspottery.de</a>
+            </div>
+            <div class="contact-row">
+              <span class="label">Instagram</span>
+              <a href="https://www.instagram.com/gwenspottery_official/" target="_blank" rel="noopener noreferrer">
+                @gwenspottery_official ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="img-box contact-img reveal reveal-delay-2 reveal-scale">
+          <img
+            src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(5).jpeg"
+            alt="Handgefertigte Keramikteller von Gwen's Pottery an einer Wand"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================== IMPRESSUM ======================== -->
+<section id="impressum" aria-labelledby="impressum-heading">
+  <div class="container" style="max-width: 600px;">
+    <h2 id="impressum-heading">Impressum</h2>
+    <p><strong>Gwen's Pottery</strong></p>
+    <p>Bogenstraße 63</p>
+    <p>20253 Hamburg</p>
+    <p>Deutschland</p>
+    <p style="margin-top:1rem;">
+      Telefon: <a href="tel:+491626425430">+49 (0) 162 6425430</a>
+    </p>
+    <p>
+      E-Mail: <a href="mailto:info@gwenspottery.de">info@gwenspottery.de</a>
+    </p>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <svg class="footer-logo" viewBox="0 0 220 220" height="64" width="64" xmlns="http://www.w3.org/2000/svg"
+       role="img" aria-label="Gwen's Pottery Logo">
+    <circle cx="110" cy="110" r="100" fill="none" stroke="#7DB894" stroke-width="1.2"/>
+    <circle cx="110" cy="110" r="91"  fill="none" stroke="#7DB894" stroke-width="0.5"/>
+    <polygon points="110,5  115,10  110,15  105,10" fill="#7DB894"/>
+    <polygon points="110,205  115,210  110,215  105,210" fill="#7DB894"/>
+    <defs>
+      <path id="f-arc-top" d="M 31,110 A 79,79 0 0,1 189,110"/>
+      <path id="f-arc-bot" d="M 33,110 A 77,77 0 0,0 187,110"/>
+    </defs>
+    <text font-family="'DM Sans',sans-serif" font-size="9" letter-spacing="4" fill="#C8DDD0" text-anchor="middle">
+      <textPath href="#f-arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+    </text>
+    <text font-family="'DM Sans',sans-serif" font-size="7.5" letter-spacing="3" fill="#8FBA9C" text-anchor="middle">
+      <textPath href="#f-arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+    </text>
+    <line x1="78" y1="97" x2="142" y2="97" stroke="#7DB894" stroke-width="0.6"/>
+    <text font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-style="italic" font-weight="300" fill="#E8F0EC" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+    <line x1="78" y1="122" x2="142" y2="122" stroke="#7DB894" stroke-width="0.6"/>
+    <text font-family="'DM Sans',sans-serif" font-size="7" letter-spacing="3" fill="#8FBA9C" text-anchor="middle" x="110" y="133">EST.  2025</text>
+  </svg>
+  <p>
+    &copy; 2025 Gwen's Pottery &middot; Hamburg &middot;
+    <a href="#impressum">Impressum</a>
+  </p>
+</footer>
+
+<script>
+  // ========================
+  // SPRACHE
+  // ========================
+  function toggleLang() {
+    const body = document.body;
+    const current = body.getAttribute('data-active-lang');
+    body.setAttribute('data-active-lang', current === 'de' ? 'en' : 'de');
+    document.documentElement.lang = current === 'de' ? 'en' : 'de';
+  }
+
+  // ========================
+  // HAMBURGER MENÜ
+  // ========================
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mainNav = document.getElementById('main-nav');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('nav-open');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Schließe Menü bei Klick auf einen Link
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('nav-open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ========================
+  // HEADER SCROLL EFFEKT + HIDE/SHOW
+  // ========================
+  const header = document.getElementById('site-header');
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateHeader() {
+    const currentY = window.scrollY;
+    // Blur und Schatten ab 40px
+    header.classList.toggle('scrolled', currentY > 40);
+
+    // Header ausblenden beim Runterscrollen, einblenden beim Hochscrollen
+    if (currentY > 120 && currentY > lastScrollY) {
+      header.classList.add('header-hidden');
+    } else {
+      header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // ========================
+  // SCROLL REVEAL
+  // ========================
+  const revealEls = document.querySelectorAll('.reveal, .reveal-scale');
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback für ältere Browser
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+</script>
+
+</body>
+</html>

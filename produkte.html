@@ -673,63 +673,7 @@
       .reveal, .reveal-scale { opacity: 1; transform: none; }
     }
 
-    /* ========================
-       FILM GRAIN TEXTURE
-    ======================== */
-    body::before {
-      content: '';
-      position: fixed;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background-image: url("data:image/svg+xml,<svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-      background-size: 180px 180px;
-      opacity: 0.027;
-      pointer-events: none;
-      z-index: 9001;
-      animation: grain 9s steps(10) infinite;
-    }
-    @keyframes grain {
-      0%,100% { transform: translate(0,0); }
-      10%     { transform: translate(-4%,-9%); }
-      20%     { transform: translate(-12%,4%); }
-      30%     { transform: translate(6%,-22%); }
-      40%     { transform: translate(-4%,22%); }
-      50%     { transform: translate(-12%,9%); }
-      60%     { transform: translate(13%,0%); }
-      70%     { transform: translate(0%,13%); }
-      80%     { transform: translate(3%,30%); }
-      90%     { transform: translate(-9%,9%); }
-    }
 
-    /* ========================
-       CUSTOM CURSOR
-    ======================== */
-    @media (pointer: fine) {
-      * { cursor: none !important; }
-      .cursor-dot {
-        width: 6px; height: 6px;
-        background: var(--accent);
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-      }
-      .cursor-ring {
-        width: 28px; height: 28px;
-        border: 1px solid rgba(184,122,94,0.4);
-        border-radius: 50%;
-        position: fixed;
-        top: 0; left: 0;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: width 0.4s ease, height 0.4s ease, border-color 0.4s ease;
-      }
-      .cursor-ring.on-link  { width: 48px; height: 48px; border-color: rgba(184,122,94,0.22); }
-      .cursor-ring.on-image { width: 78px; height: 78px; border-color: rgba(184,122,94,0.16); border-width: 1px; }
-    }
 
     /* ========================
        SCROLL PROGRESS BAR
@@ -1244,59 +1188,7 @@
     revealEls.forEach(el => el.classList.add('visible'));
   }
 
-  // ========================
-  // CUSTOM CURSOR (nur Maus-Geräte)
-  // ========================
-  if (window.matchMedia('(pointer: fine)').matches) {
-    const dot  = document.createElement('div');
-    const ring = document.createElement('div');
-    dot.className  = 'cursor-dot';
-    ring.className = 'cursor-ring';
-    document.documentElement.appendChild(dot);
-    document.documentElement.appendChild(ring);
 
-    let mx = -200, my = -200, rx = -200, ry = -200;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top  = my + 'px';
-    });
-
-    (function lerpRing() {
-      rx += (mx - rx) * 0.13;
-      ry += (my - ry) * 0.13;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(lerpRing);
-    })();
-
-    document.querySelectorAll('a, button').forEach(el => {
-      el.addEventListener('mouseenter', () => ring.classList.add('on-link'));
-      el.addEventListener('mouseleave', () => ring.classList.remove('on-link'));
-    });
-    document.querySelectorAll('.product-image-wrap, .detail-grid-item, .img-box').forEach(el => {
-      el.addEventListener('mouseenter', () => { ring.classList.remove('on-link'); ring.classList.add('on-image'); });
-      el.addEventListener('mouseleave', () => ring.classList.remove('on-image'));
-    });
-  }
-
-  // ========================
-  // MAGNETIC BUTTONS
-  // ========================
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      const x = (e.clientX - r.left  - r.width  / 2) * 0.28;
-      const y = (e.clientY - r.top   - r.height / 2) * 0.36;
-      btn.style.transition = 'transform 0.1s ease';
-      btn.style.transform  = `translate(${x}px, ${y}px)`;
-    });
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transition = 'transform 0.65s cubic-bezier(0.22, 1, 0.36, 1)';
-      btn.style.transform  = 'translate(0, 0)';
-    });
-  });
 
   // ========================
   // PREIS-COUNTER

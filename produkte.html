@@ -22,14 +22,14 @@
        VARIABLES & RESET
     ======================== */
     :root {
-      --bg:        #F5F0EB;
-      --primary:   #3D3935;
-      --accent:    #B87A5E;
-      --secondary: #8A9E8C;
-      --text:      #1C1917;
-      --muted:     #6B625A;
-      --white:     #FDFAF7;
-      --border:    #E2D9CF;
+      --bg:        #EDE8E1;
+      --primary:   #33302C;
+      --accent:    #6B7F6E;
+      --secondary: #8A7B6B;
+      --text:      #33302C;
+      --muted:     #65605A;
+      --white:     #F8F5F1;
+      --border:    #D4CBC0;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -93,7 +93,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 240, 235, 0.92);
+      background: rgba(237, 232, 225, 0.92);
       backdrop-filter: blur(0px);
       -webkit-backdrop-filter: blur(0px);
       border-bottom: 1px solid var(--border);
@@ -108,7 +108,7 @@
       box-shadow: 0 2px 24px rgba(60, 50, 40, 0.08);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(245, 240, 235, 0.88);
+      background: rgba(237, 232, 225, 0.88);
     }
 
     .logo svg {
@@ -241,7 +241,7 @@
       letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--accent);
-      border: 1px solid rgba(184,122,94,0.3);
+      border: 1px solid rgba(107,127,110,0.3);
       padding: 0.3rem 0.85rem;
       margin-bottom: 1.75rem;
     }
@@ -294,7 +294,7 @@
       position: absolute;
       width: 600px;
       height: 400px;
-      background: radial-gradient(ellipse, rgba(184,122,94,0.06) 0%, transparent 65%);
+      background: radial-gradient(ellipse, rgba(107,127,110,0.06) 0%, transparent 65%);
       top: 0;
       left: 50%;
       transform: translateX(-50%);
@@ -442,7 +442,7 @@
     }
     .becher-price-card:hover {
       border-color: var(--accent);
-      background: rgba(184,122,94,0.03);
+      background: rgba(107,127,110,0.03);
     }
     .becher-price-card .label-small {
       font-size: 0.65rem;
@@ -638,7 +638,7 @@
       nav {
         position: fixed;
         top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(245, 240, 235, 0.97);
+        background: rgba(237, 232, 225, 0.97);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
@@ -951,15 +951,6 @@
     </div>
   </section>
 
-  <!-- ======================== DIVIDER ======================== -->
-  <div class="divider-strip">
-    <blockquote class="reveal">
-      <span data-lang-inline="de">„An der Nordsee habe ich gelernt: Das Beständige braucht keinen Glanz. Es braucht nur Zeit."</span>
-      <span data-lang-inline="en">"At the North Sea I learned: what endures needs no shine. It just needs time."</span>
-    </blockquote>
-    <cite class="reveal reveal-delay-1">Gwen's Pottery · Hamburg</cite>
-  </div>
-
   <!-- ======================== PRODUKT 2: BECHER ======================== -->
   <section id="die-becher" aria-labelledby="becher-heading">
     <div class="product-split reverse">
@@ -1064,7 +1055,7 @@
   </svg>
   <p>
     &copy; 2025 Gwen's Pottery &middot; Hamburg &middot;
-    <a href="index.html#impressum">Impressum</a>
+    <a href="impressum.html">Impressum</a>
   </p>
 </footer>
 

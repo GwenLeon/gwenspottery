@@ -149,11 +149,21 @@
     }
     nav a:hover { color: var(--accent); }
     nav a:hover::after,
-    nav a.active::after {
+    nav a[aria-current="page"]::after {
       transform: scaleX(1);
       transform-origin: left;
     }
-    nav a.active { color: var(--accent); }
+    nav a[aria-current="page"] { color: var(--accent); }
+
+    /* Focus States */
+    nav a:focus-visible,
+    .logo:focus-visible,
+    .lang-btn:focus-visible,
+    .btn:focus-visible,
+    .hamburger:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
 
     .lang-btn {
       font-family: 'DM Sans', sans-serif;
@@ -544,7 +554,7 @@
     ======================== */
     footer {
       background: var(--primary);
-      color: #9A928B;
+      color: #B5ADA6;
       text-align: center;
       padding: 3rem 3rem 2rem;
       font-size: 0.78rem;
@@ -787,7 +797,7 @@
       <span data-lang-inline="de">Startseite</span>
       <span data-lang-inline="en">Home</span>
     </a>
-    <a href="produkte.html" class="active">
+    <a href="produkte.html" aria-current="page">
       <span data-lang-inline="de">Produkte</span>
       <span data-lang-inline="en">Products</span>
     </a>
@@ -799,7 +809,7 @@
       <span data-lang-inline="de">Kontakt</span>
       <span data-lang-inline="en">Contact</span>
     </a>
-    <button class="lang-btn" onclick="toggleLang()" aria-label="Sprache wechseln">
+    <button class="lang-btn" type="button" id="lang-btn" aria-label="Sprache wechseln">
       <span data-lang-inline="de">EN</span>
       <span data-lang-inline="en">DE</span>
     </button>
@@ -959,7 +969,7 @@
       <div class="product-image-wrap reveal-scale">
         <img
           src="Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21.jpeg"
-          alt="Kleiner und großer Keramikbecher von Gwen's Pottery in Olivgrün auf Leinenstoff"
+          alt="Kleiner und großer Keramikbecher von Gwen's Pottery in Schilfgrün auf Leinenstoff"
           loading="lazy"
         >
       </div>
@@ -1068,12 +1078,12 @@
   // ========================
   // SPRACHE
   // ========================
-  function toggleLang() {
+  document.getElementById('lang-btn').addEventListener('click', () => {
     const body = document.body;
     const cur = body.getAttribute('data-active-lang');
     body.setAttribute('data-active-lang', cur === 'de' ? 'en' : 'de');
     document.documentElement.lang = cur === 'de' ? 'en' : 'de';
-  }
+  });
 
   // ========================
   // SCROLL PROGRESS BAR

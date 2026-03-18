@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Handgefertigte Keramik aus Hamburg | Gwen's Pottery</title>
-  <meta name="description" content="Gwen's Pottery – Handgemachte Keramik-Sets aus Hamburg. Jedes Stück ein Unikat, gefertigt mit Sorgfalt und Liebe zum Detail. Nachhaltig, einzigartig, zeitlos.">
-  <meta name="keywords" content="handgemachte Keramik Hamburg, Töpferei Hamburg, nachhaltiges Geschirr, Keramik Sets, handgefertigte Keramik">
+  <meta name="description" content="Gwen's Pottery – Handgemachte Keramik aus Hamburg. Kollektion An der Nordsee: Schilfgrün glasiertes Geschirr-Set für vier Personen. Jedes Stück ein Unikat, von Hand getöpfert.">
+  <meta name="keywords" content="handgemachte Keramik Hamburg, Töpferei Hamburg, Keramik Nordsee, Schilfgrün Keramik, handgemachtes Geschirr Set, Keramik Geschenk Familie, Nordsee Geschirr">
   <meta name="author" content="Gwen's Pottery">
-  <meta property="og:title" content="Handgefertigte Keramik aus Hamburg | Gwen's Pottery">
-  <meta property="og:description" content="Einzigartige Keramik-Sets aus Hamburg. Handgemacht, nachhaltig, zeitlos.">
+  <meta property="og:title" content="Keramik An der Nordsee | Gwen's Pottery Hamburg">
+  <meta property="og:description" content="Schilfgrün glasiertes Geschirr-Set für vier Personen. Handgetöpfert in Hamburg, inspiriert von Sylt und der Nordseeküste.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gwenspottery.de">
+  <meta property="og:image" content="https://gwenspottery.de/Bilder/WhatsApp%20Image%202026-03-13%20at%2018.54.21%20(3).jpeg">
   <link rel="canonical" href="https://gwenspottery.de">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +34,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { overflow-x: hidden; }
+    html { overflow-x: hidden; scroll-behavior: smooth; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -93,7 +94,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(245, 240, 235, 0.92);
+      background: rgba(237, 232, 225, 0.92);
       backdrop-filter: blur(0px);
       -webkit-backdrop-filter: blur(0px);
       border-bottom: 1px solid var(--border);
@@ -108,7 +109,7 @@
       box-shadow: 0 2px 24px rgba(60, 50, 40, 0.08);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      background: rgba(245, 240, 235, 0.88);
+      background: rgba(237, 232, 225, 0.88);
     }
 
     .logo svg {
@@ -151,6 +152,16 @@
     nav a:hover::after {
       transform: scaleX(1);
       transform-origin: left;
+    }
+
+    /* Focus States */
+    nav a:focus-visible,
+    .logo:focus-visible,
+    .lang-btn:focus-visible,
+    .btn:focus-visible,
+    .hamburger:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
     }
 
     .lang-btn {
@@ -251,7 +262,7 @@
       position: absolute;
       width: 520px;
       height: 480px;
-      background: radial-gradient(ellipse, rgba(184,122,94,0.07) 0%, transparent 68%);
+      background: radial-gradient(ellipse, rgba(107,127,110,0.07) 0%, transparent 68%);
       border-radius: 62% 38% 54% 46% / 48% 57% 43% 52%;
       top: -80px;
       left: -100px;
@@ -423,20 +434,6 @@
       margin-bottom: 0.6rem;
     }
 
-    /* Organisches Blatt-Akzent neben Überschriften */
-    .leaf-accent {
-      display: inline-block;
-      margin-left: 0.5rem;
-      vertical-align: middle;
-      opacity: 0.45;
-      transition: opacity 0.3s ease, transform 0.5s ease;
-    }
-    *:hover > .leaf-accent,
-    h2:hover .leaf-accent {
-      opacity: 0.7;
-      transform: rotate(8deg);
-    }
-
     /* ========================
        IMAGE BOXES
     ======================== */
@@ -503,7 +500,7 @@
       width: 600px;
       height: 600px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(184,122,94,0.04) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(107,127,110,0.04) 0%, transparent 70%);
       right: -200px;
       top: -100px;
       pointer-events: none;
@@ -536,82 +533,6 @@
     }
 
     /* ========================
-       PHILOSOPHIE
-    ======================== */
-    #philosophie {
-      background: var(--primary);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Organische Hintergrund-Kugeln */
-    .philosophy-orb {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(138,158,140,0.14) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .philosophy-orb-1 {
-      width: 560px;
-      height: 560px;
-      top: -160px;
-      right: -160px;
-    }
-    .philosophy-orb-2 {
-      width: 380px;
-      height: 380px;
-      bottom: -120px;
-      left: -80px;
-      background: radial-gradient(ellipse, rgba(184,122,94,0.09) 0%, transparent 65%);
-    }
-
-    #philosophie h2 {
-      color: var(--white);
-    }
-
-    .philosophy-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1.5;
-      margin: 2rem 0;
-      position: relative;
-    }
-
-    /* Dekorative Anführungszeichen */
-    .blockquote::before {
-      content: '\201C';
-      position: absolute;
-      top: -0.6em;
-      left: -0.4em;
-      font-size: 4em;
-      color: rgba(184,122,94,0.12);
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    #philosophie p {
-      color: #C4BAB2;
-      font-size: 0.97rem;
-      line-height: 1.9;
-    }
-
-    #philosophie .eyebrow {
-      color: #8A9E8C;
-    }
-
-    /* ========================
        PRODUKTE
     ======================== */
     #produkte {
@@ -641,6 +562,7 @@
       padding: 2.75rem 2.25rem;
       position: relative;
       overflow: hidden;
+      cursor: pointer;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
     .feature:hover {
@@ -667,7 +589,7 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(184,122,94,0.05) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(107,127,110,0.05) 0%, transparent 70%);
       bottom: -30px;
       right: -20px;
       transition: transform 0.5s ease;
@@ -759,33 +681,11 @@
     }
 
     /* ========================
-       IMPRESSUM
-    ======================== */
-    #impressum {
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      padding: 4rem 3rem;
-    }
-
-    #impressum h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-    }
-
-    #impressum p {
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.8;
-    }
-
-    #impressum a { color: var(--accent); }
-
-    /* ========================
        FOOTER
     ======================== */
     footer {
       background: var(--primary);
-      color: #9A928B;
+      color: #B5ADA6;
       text-align: center;
       padding: 3rem 3rem 2rem;
       font-size: 0.78rem;
@@ -878,7 +778,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(245, 240, 235, 0.97);
+        background: rgba(237, 232, 225, 0.97);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
@@ -906,7 +806,6 @@
       section[id] { scroll-margin-top: 70px; }
       .hero-content { padding: 4rem 1.25rem 2.5rem; }
       section { padding: 4rem 1.25rem; }
-      #impressum { padding: 3rem 1.25rem; }
     }
 
     /* Reduced motion — alle Animationen respektvoll deaktivieren */
@@ -925,7 +824,7 @@
 
 <!-- ======================== HEADER ======================== -->
 <header id="site-header">
-  <a href="#" class="logo" aria-label="Gwen's Pottery – Startseite">
+  <a href="index.html" class="logo" aria-label="Gwen's Pottery – Startseite">
     <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gwen's Pottery Logo">
       <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
       <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
@@ -951,7 +850,7 @@
     <span></span><span></span><span></span>
   </button>
   <nav id="main-nav" aria-label="Hauptnavigation">
-    <a href="#">
+    <a href="index.html" aria-current="page">
       <span data-lang-inline="de">Startseite</span>
       <span data-lang-inline="en">Home</span>
     </a>
@@ -967,7 +866,7 @@
       <span data-lang-inline="de">Kontakt</span>
       <span data-lang-inline="en">Contact</span>
     </a>
-    <button class="lang-btn" onclick="toggleLang()" aria-label="Sprache wechseln">
+    <button class="lang-btn" type="button" id="lang-btn" aria-label="Sprache wechseln">
       <span data-lang-inline="de">EN</span>
       <span data-lang-inline="en">DE</span>
     </button>
@@ -1014,7 +913,7 @@
   <!-- Organische Wellenlinie als Übergang -->
   <div class="wave-divider" style="background: var(--bg);" aria-hidden="true">
     <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="#FDFAF7"/>
+      <path d="M0,24 C240,0 480,48 720,24 C960,0 1200,48 1440,24 L1440,0 L0,0 Z" fill="#F8F5F1"/>
     </svg>
   </div>
 
@@ -1024,17 +923,17 @@
       <div class="about-grid">
         <div class="about-text reveal">
           <span class="section-tag">
-            <span data-lang-inline="de">Über Gwen</span>
-            <span data-lang-inline="en">About Gwen</span>
+            <span data-lang-inline="de">Über mich</span>
+            <span data-lang-inline="en">About me</span>
           </span>
           <h2 id="about-heading">
-            <span data-lang="de">Gemacht um<br><em>benutzt</em> zu werden</span>
-            <span data-lang="en">Made to<br><em>be used</em></span>
+            <span data-lang="de">Ich bin <em>Gwen</em></span>
+            <span data-lang="en">I'm <em>Gwen</em></span>
           </h2>
-          <p data-lang="de">Ich töpfere kein Geschirr für den Schrank. Jedes Stück soll Spuren tragen, mit der Zeit besser werden und irgendwann dazugehören wie ein alter Freund. Meine Formen bewähren sich im Alltag, meine Glasuren halten was sie versprechen, und Gebrauchsspuren sind kein Makel.</p>
-          <p data-lang="en">I don't make ceramics for the cabinet. Every piece should show its age, get better over time, and eventually feel like it has always been there. My forms hold up in daily use, my glazes deliver, and signs of wear are not a flaw.</p>
-          <p data-lang="de">Jede Kollektion entsteht aus einer Erinnerung, einem Ort, einem Menschen. Die erste, "An der Nordsee", habe ich mit meinem Großvater im Kopf geformt.</p>
-          <p data-lang="en">Every collection starts from a memory, a place, a person. The first, "By the North Sea", was shaped with my grandfather in mind.</p>
+          <p data-lang="de">Mein Geschirr ist für den Alltag gemacht, nicht für die Vitrine. Es darf Spuren tragen und soll mit der Zeit besser werden.</p>
+          <p data-lang="en">My tableware is made for daily use, not for display. It's meant to show its age and get better over time.</p>
+          <p data-lang="de">Die erste Kollektion heißt "An der Nordsee". Farblich soll sie an die Nordsee erinnern, wo ich als Kind mit meinem Großvater Urlaub gemacht habe.</p>
+          <p data-lang="en">The first collection is called "By the North Sea". The colours are inspired by the North Sea coast, where I used to spend holidays with my grandfather as a child.</p>
           <a href="#kontakt" class="btn" style="margin-top:1.75rem; display:inline-block;">
             <span data-lang-inline="de">Kontakt aufnehmen</span>
             <span data-lang-inline="en">Get in touch</span>
@@ -1222,12 +1121,12 @@
   // ========================
   // SPRACHE
   // ========================
-  function toggleLang() {
+  document.getElementById('lang-btn').addEventListener('click', () => {
     const body = document.body;
     const current = body.getAttribute('data-active-lang');
     body.setAttribute('data-active-lang', current === 'de' ? 'en' : 'de');
     document.documentElement.lang = current === 'de' ? 'en' : 'de';
-  }
+  });
 
   // ========================
   // HAMBURGER MENÜ

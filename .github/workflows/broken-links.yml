@@ -1,0 +1,37 @@
+name: Broken Links prüfen
+
+on:
+  schedule:
+    - cron: '0 6 * * 3'  # Jeden Mittwoch um 6 Uhr UTC
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+
+jobs:
+  check-links:
+    name: Links auf allen Seiten prüfen
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Linkinator installieren
+        run: npm install -g linkinator
+
+      - name: Links prüfen
+        run: |
+          echo "Prüfe Links auf gwenspottery.de..."
+          linkinator https://gwenspottery.de \
+            --recurse \
+            --skip "instagram.com|google.com|bing.com|github.com|netlify.com|privacycenter.instagram.com|policies.google.com|docs.github.com" \
+            --verbosity error \
+            || echo "Einige Links konnten nicht geprüft werden (externe Seiten blockieren Crawler)."

@@ -1,0 +1,31 @@
+name: Wöchentlicher SEO Audit
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Jeden Montag um 8 Uhr UTC
+  workflow_dispatch:       # Manuell auslösbar über GitHub UI
+
+jobs:
+  lighthouse:
+    name: Lighthouse Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Lighthouse Audit durchführen
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://gwenspottery.de
+            https://gwenspottery.de/produkte.html
+            https://gwenspottery.de/impressum.html
+            https://gwenspottery.de/datenschutz.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+      - name: Ergebnis ausgeben
+        run: |
+          echo "SEO Audit abgeschlossen."
+          echo "Ergebnisse sind als Artefakte gespeichert (Actions > Dieser Run > Artifacts)."

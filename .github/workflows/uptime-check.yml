@@ -1,0 +1,51 @@
+name: Täglicher Verfügbarkeits-Check
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Täglich um 7 Uhr UTC
+  workflow_dispatch:       # Manuell auslösbar
+
+jobs:
+  check-website:
+    name: Website erreichbar?
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Startseite prüfen
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://gwenspottery.de)
+          echo "Startseite HTTP Status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "FEHLER: Startseite nicht erreichbar (Status $STATUS)"
+            exit 1
+          fi
+
+      - name: Produkte-Seite prüfen
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://gwenspottery.de/produkte.html)
+          echo "Produkte HTTP Status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "FEHLER: Produkte-Seite nicht erreichbar (Status $STATUS)"
+            exit 1
+          fi
+
+      - name: Impressum prüfen
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://gwenspottery.de/impressum.html)
+          echo "Impressum HTTP Status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "FEHLER: Impressum nicht erreichbar (Status $STATUS)"
+            exit 1
+          fi
+
+      - name: Datenschutz prüfen
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://gwenspottery.de/datenschutz.html)
+          echo "Datenschutz HTTP Status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "FEHLER: Datenschutz-Seite nicht erreichbar (Status $STATUS)"
+            exit 1
+          fi
+
+      - name: Alle Seiten erreichbar
+        run: echo "Alle Seiten sind erreichbar."

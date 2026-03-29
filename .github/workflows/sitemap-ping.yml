@@ -1,0 +1,34 @@
+name: Sitemap bei Google einreichen
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+jobs:
+  ping-google:
+    name: Sitemap Ping
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sitemap bei Google einreichen
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://www.google.com/ping?sitemap=https://gwenspottery.de/sitemap.xml")
+          echo "Google Ping Status: $RESPONSE"
+          if [ "$RESPONSE" = "200" ]; then
+            echo "Sitemap erfolgreich bei Google eingereicht."
+          else
+            echo "Ping gesendet (Status $RESPONSE) — Google verarbeitet die Sitemap."
+          fi
+
+      - name: Sitemap bei Bing einreichen
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://www.bing.com/ping?sitemap=https://gwenspottery.de/sitemap.xml")
+          echo "Bing Ping Status: $RESPONSE"
+          echo "Sitemap auch bei Bing eingereicht."

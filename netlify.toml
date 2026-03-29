@@ -1,0 +1,30 @@
+[build]
+  publish = "."
+  ignore = "exit 1"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/Bilder/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/produkte"
+  to = "/produkte.html"
+  status = 200
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 200

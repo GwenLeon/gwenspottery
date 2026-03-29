@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung | Gwen's Pottery Hamburg</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://gwenspottery.de/datenschutz.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:        #EDE8E1;
+      --primary:   #33302C;
+      --accent:    #6B7F6E;
+      --muted:     #65605A;
+      --white:     #F8F5F1;
+      --border:    #D4CBC0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(237, 232, 225, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 80px;
+      padding: 0 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo svg {
+      height: 62px;
+      width: auto;
+      transition: transform 0.4s ease;
+    }
+    .logo:hover svg { transform: rotate(3deg) scale(1.04); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.25s ease;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s ease;
+    }
+    nav a:hover { color: var(--accent); }
+    nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    nav a:focus-visible,
+    .logo:focus-visible,
+    .lang-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .lang-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 0.35rem 0.9rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      z-index: 0;
+    }
+    .lang-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+      z-index: -1;
+    }
+    .lang-btn:hover::before { transform: scaleX(1); }
+    .lang-btn:hover { color: var(--white); border-color: var(--primary); }
+
+    [data-lang], [data-lang-inline] { display: none; }
+    body[data-active-lang="de"] [data-lang="de"] { display: block; }
+    body[data-active-lang="en"] [data-lang="en"] { display: block; }
+    body[data-active-lang="de"] [data-lang-inline="de"] { display: inline; }
+    body[data-active-lang="en"] [data-lang-inline="en"] { display: inline; }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 110;
+    }
+    .hamburger:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--primary);
+      margin: 5px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 3rem 7rem;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-meta {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--primary);
+      margin: 3rem 0 1rem;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin: 2rem 0 0.6rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      margin: 0.5rem 0 1.1rem 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    ul li { margin-bottom: 0.35rem; }
+
+    .highlight-box {
+      border-left: 2px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      background: rgba(107, 127, 110, 0.05);
+      margin: 2rem 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: #B5ADA6;
+      text-align: center;
+      padding: 2.5rem 3rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+    }
+
+    footer a { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      header {
+        height: 60px;
+        padding: 0 1.25rem;
+      }
+      .logo svg { height: 44px; width: 44px; }
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+      }
+      nav {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(237, 232, 225, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        z-index: 105;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        width: 100%;
+      }
+      nav.nav-open { opacity: 1; pointer-events: auto; }
+      nav a { font-size: 0.85rem; letter-spacing: 0.18em; }
+      main { padding: 3rem 1.25rem 5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    body { transition: opacity 0.45s ease; }
+    body.fade-out { opacity: 0 !important; }
+  </style>
+</head>
+
+<body data-active-lang="de">
+
+<header>
+  <a href="index.html" class="logo" aria-label="Gwen's Pottery — Startseite">
+    <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gwen's Pottery Logo">
+      <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+      <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+      <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+      <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+      <defs>
+        <path id="h-arc-top" d="M 31,110 A 79,79 0 0,1 189,110"/>
+        <path id="h-arc-bot" d="M 33,110 A 77,77 0 0,0 187,110"/>
+      </defs>
+      <text font-family="'DM Sans',sans-serif" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+        <textPath href="#h-arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+      </text>
+      <text font-family="'DM Sans',sans-serif" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+        <textPath href="#h-arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+      </text>
+      <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'Cormorant Garamond',Georgia,serif" font-size="21" font-style="italic" font-weight="300" fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+      <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+      <text font-family="'DM Sans',sans-serif" font-size="7" letter-spacing="3" fill="#4A6E58" text-anchor="middle" x="110" y="133">EST.  2025</text>
+    </svg>
+  </a>
+  <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="main-nav" aria-label="Hauptnavigation">
+    <a href="index.html">
+      <span data-lang-inline="de">Startseite</span>
+      <span data-lang-inline="en">Home</span>
+    </a>
+    <a href="produkte.html">
+      <span data-lang-inline="de">Produkte</span>
+      <span data-lang-inline="en">Products</span>
+    </a>
+    <a href="index.html#ueber-uns">
+      <span data-lang-inline="de">Über uns</span>
+      <span data-lang-inline="en">About</span>
+    </a>
+    <a href="index.html#kontakt">
+      <span data-lang-inline="de">Kontakt</span>
+      <span data-lang-inline="en">Contact</span>
+    </a>
+    <button class="lang-btn" type="button" id="lang-btn" aria-label="Sprache wechseln">
+      <span data-lang-inline="de">EN</span>
+      <span data-lang-inline="en">DE</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+  <h1 class="page-title">Datenschutzerklärung</h1>
+  <p class="page-meta">Stand: März 2026</p>
+
+  <h2>1. Verantwortliche Person</h2>
+  <p>
+    Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
+  </p>
+  <div class="highlight-box">
+    <p>
+      Gwen Leon<br>
+      Hamburg<br>
+      E-Mail: <a href="mailto:info@gwenspottery.de">info@gwenspottery.de</a><br>
+      Telefon: <a href="tel:+491626425430">+49 162 6425430</a>
+    </p>
+  </div>
+
+  <h2>2. Hosting</h2>
+  <p>
+    Diese Website wird gehostet über GitHub Pages, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street,
+    San Francisco, CA 94107, USA. GitHub verarbeitet beim Aufruf der Website technische Zugriffsdaten (darunter
+    IP-Adresse, Browsertyp, Betriebssystem, aufgerufene Seite, Uhrzeit des Zugriffs). Diese Daten werden in
+    Server-Logfiles gespeichert und sind zur technischen Auslieferung der Website erforderlich.
+  </p>
+  <p>
+    GitHub ist Teil von Microsoft und unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen
+    zum Datenschutz bei GitHub findest du unter: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">docs.github.com/privacy</a>
+  </p>
+  <p>
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb einer funktionsfähigen Website).
+  </p>
+
+  <h2>3. Kontaktaufnahme per E-Mail oder Telefon</h2>
+  <p>
+    Wenn du mich per E-Mail oder Telefon kontaktierst, werden die von dir übermittelten Daten
+    (Name, E-Mail-Adresse, Inhalt der Nachricht) zum Zweck der Bearbeitung deiner Anfrage gespeichert und verwendet.
+    Diese Daten werden nicht an Dritte weitergegeben.
+  </p>
+  <p>
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. f DSGVO
+    (berechtigtes Interesse an der Beantwortung von Anfragen).
+  </p>
+
+  <h2>4. Google Fonts</h2>
+  <p>
+    Diese Website nutzt Google Fonts, einen Dienst der Google LLC, 1600 Amphitheatre Parkway, Mountain View,
+    CA 94043, USA. Beim Laden der Seite stellt dein Browser eine Verbindung zu Googles Servern her, dabei
+    wird deine IP-Adresse an Google übertragen.
+  </p>
+  <p>
+    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen:
+    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>
+  </p>
+
+  <h2>5. Cookies und Tracking</h2>
+  <p>
+    Diese Website verwendet keine Cookies und kein Tracking. Es werden keine Analyse- oder
+    Marketingdienste (z.B. Google Analytics) eingesetzt. Dein Besuch wird nicht aufgezeichnet oder ausgewertet.
+  </p>
+
+  <h2>6. Instagram</h2>
+  <p>
+    Auf dieser Website befindet sich ein Link zum Instagram-Profil @gwenspottery_official. Durch das Klicken
+    auf diesen Link verlässt du diese Website. Für die Datenverarbeitung auf Instagram ist Meta Platforms Ireland
+    Limited verantwortlich. Informationen zum Datenschutz bei Instagram:
+    <a href="https://privacycenter.instagram.com" target="_blank" rel="noopener noreferrer">privacycenter.instagram.com</a>
+  </p>
+
+  <h2>7. Deine Rechte</h2>
+  <p>Du hast gegenüber mir folgende Rechte bezüglich deiner personenbezogenen Daten:</p>
+  <ul>
+    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+    <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
+  </ul>
+  <p>
+    Zur Geltendmachung dieser Rechte wende dich per E-Mail an:
+    <a href="mailto:info@gwenspottery.de">info@gwenspottery.de</a>
+  </p>
+  <p>
+    Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
+    Zuständig ist der Hamburgische Beauftragte für Datenschutz und Informationsfreiheit (HmbBfDI).
+  </p>
+</main>
+
+<footer>
+  <p>
+    &copy; 2026 Gwen's Pottery &middot; Hamburg &middot;
+    <a href="impressum.html">Impressum</a> &middot;
+    <a href="datenschutz.html">Datenschutz</a>
+  </p>
+</footer>
+
+<script>
+  // Hamburger Menu
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mainNav = document.getElementById('main-nav');
+
+  hamburgerBtn.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('nav-open');
+    hamburgerBtn.classList.toggle('open', isOpen);
+    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  mainNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mainNav.classList.remove('nav-open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Language Toggle
+  document.getElementById('lang-btn').addEventListener('click', () => {
+    const body = document.body;
+    const cur = body.getAttribute('data-active-lang');
+    body.setAttribute('data-active-lang', cur === 'de' ? 'en' : 'de');
+    document.documentElement.lang = cur === 'de' ? 'en' : 'de';
+  });
+
+  // Page Fade Transition
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel')) return;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.add('fade-out');
+      setTimeout(() => { window.location.href = href; }, 420);
+    });
+  });
+  window.addEventListener('pageshow', () => document.body.classList.remove('fade-out'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Gwen's Pottery – Siegel Logo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #EDEAE5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 3rem 2rem;
+    }
+    h1 {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9A928B;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    .row {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .box-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #AAA09A;
+    }
+    .bg-light {
+      background: #F5F0EB;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bg-dark {
+      background: #243D2E;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bg-white {
+      background: #ffffff;
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* SVG font styling via CSS — fonts from page apply to inline SVG */
+    .seal-svg text.serif {
+      font-family: 'Cormorant Garamond', 'Georgia', serif;
+    }
+    .seal-svg text.sans {
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Gwen's Pottery · Siegel Logo · Spacing Test</h1>
+
+<div class="row">
+
+  <!-- HELL -->
+  <div class="box">
+    <div class="box-label">Auf hellem Grund</div>
+    <div class="bg-light">
+      <!-- INLINE SVG — Schriften vom Dokument werden übernommen -->
+      <svg class="seal-svg" viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- ── Ringe ── -->
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+
+        <!-- ── Dekorpunkte oben & unten (auf dem äußeren Ring) ── -->
+        <!-- Oben: Raute -->
+        <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+        <!-- Unten: Raute -->
+        <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+
+        <!-- ══════════════════════════════════════
+             TEXTPFADE
+             Baseline der Texte: r=79
+             Gap zum inneren Ring (r=91): 12 px
+             Textkörper geht nach innen bis r≈70
+             Gap zum Zentrum: reichlich
+        ═══════════════════════════════════════ -->
+        <defs>
+          <!-- Oberer Bogen: links → oben → rechts  (sweep=1, Uhrzeigersinn im Screen-Koord.) -->
+          <path id="arc-top"
+            d="M 31,110 A 79,79 0 0,1 189,110"/>
+
+          <!-- Unterer Bogen: links → unten → rechts  (sweep=0, Gegenuhrzeigersinn) -->
+          <path id="arc-bot"
+            d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+
+        <!-- Oberer Text -->
+        <text class="sans" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+          <textPath href="#arc-top" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+
+        <!-- Unterer Text -->
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+          <textPath href="#arc-bot" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+
+        <!-- ── Zentrum ── -->
+        <!-- Dünne horizontale Dekorlinie oben -->
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+
+        <!-- Hauptname: "Gwen's" kursiv -->
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+
+        <!-- Dünne horizontale Dekorlinie unten -->
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+
+        <!-- Est. Jahr -->
+        <text class="sans" font-size="7" letter-spacing="3" fill="#4A6E58"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+
+      </svg>
+    </div>
+  </div>
+
+  <!-- DUNKEL -->
+  <div class="box">
+    <div class="box-label">Auf dunklem Grund</div>
+    <div class="bg-dark">
+      <svg class="seal-svg" viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#7DB894" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#7DB894" stroke-width="0.5"/>
+
+        <polygon points="110,5  115,10  110,15  105,10" fill="#7DB894"/>
+        <polygon points="110,205  115,210  110,215  105,210" fill="#7DB894"/>
+
+        <defs>
+          <path id="arc-top-d" d="M 31,110 A 79,79 0 0,1 189,110"/>
+          <path id="arc-bot-d" d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+
+        <text class="sans" font-size="9" letter-spacing="4" fill="#C8DDD0" text-anchor="middle">
+          <textPath href="#arc-top-d" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#8FBA9C" text-anchor="middle">
+          <textPath href="#arc-bot-d" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#7DB894" stroke-width="0.6"/>
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#E8F0EC" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#7DB894" stroke-width="0.6"/>
+        <text class="sans" font-size="7" letter-spacing="3" fill="#8FBA9C"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+
+      </svg>
+    </div>
+  </div>
+
+  <!-- WEISS -->
+  <div class="box">
+    <div class="box-label">Auf weißem Grund</div>
+    <div class="bg-white">
+      <svg class="seal-svg" viewBox="0 0 220 220" width="220" height="220" xmlns="http://www.w3.org/2000/svg">
+
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+
+        <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+        <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+
+        <defs>
+          <path id="arc-top-w" d="M 31,110 A 79,79 0 0,1 189,110"/>
+          <path id="arc-bot-w" d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+
+        <text class="sans" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+          <textPath href="#arc-top-w" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+          <textPath href="#arc-bot-w" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="sans" font-size="7" letter-spacing="3" fill="#4A6E58"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+
+      </svg>
+    </div>
+  </div>
+
+</div>
+
+<!-- Größentest -->
+<div style="margin-top:3rem; text-align:center;">
+  <div style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#AAA09A; margin-bottom:1.5rem;">Klein — wie im Header</div>
+  <div style="display:flex; gap:3rem; align-items:center; justify-content:center; flex-wrap:wrap;">
+
+    <!-- 56px – Header-Größe, heller Hintergrund -->
+    <div style="background:#F5F0EB; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+      <svg class="seal-svg" viewBox="0 0 220 220" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+        <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+        <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+        <defs>
+          <path id="arc-top-s" d="M 31,110 A 79,79 0 0,1 189,110"/>
+          <path id="arc-bot-s" d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+        <text class="sans" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+          <textPath href="#arc-top-s" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+          <textPath href="#arc-bot-s" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="sans" font-size="7" letter-spacing="3" fill="#4A6E58"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+      </svg>
+      <span style="font-size:0.7rem; color:#9A928B;">56px – Header</span>
+    </div>
+
+    <!-- 80px – mittel -->
+    <div style="background:#F5F0EB; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+      <svg class="seal-svg" viewBox="0 0 220 220" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#2B4535" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#2B4535" stroke-width="0.5"/>
+        <polygon points="110,5  115,10  110,15  105,10" fill="#2B4535"/>
+        <polygon points="110,205  115,210  110,215  105,210" fill="#2B4535"/>
+        <defs>
+          <path id="arc-top-m" d="M 31,110 A 79,79 0 0,1 189,110"/>
+          <path id="arc-bot-m" d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+        <text class="sans" font-size="9" letter-spacing="4" fill="#2B4535" text-anchor="middle">
+          <textPath href="#arc-top-m" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#3A6149" text-anchor="middle">
+          <textPath href="#arc-bot-m" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#1C2E24" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#3A6149" stroke-width="0.6"/>
+        <text class="sans" font-size="7" letter-spacing="3" fill="#4A6E58"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+      </svg>
+      <span style="font-size:0.7rem; color:#9A928B;">80px – mittel</span>
+    </div>
+
+    <!-- Dunkel Header-Test -->
+    <div style="background:#3D3935; padding:1rem 2rem; display:flex; align-items:center; gap:1.5rem;">
+      <svg class="seal-svg" viewBox="0 0 220 220" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#7DB894" stroke-width="1.2"/>
+        <circle cx="110" cy="110" r="91"  fill="none" stroke="#7DB894" stroke-width="0.5"/>
+        <polygon points="110,5  115,10  110,15  105,10" fill="#7DB894"/>
+        <polygon points="110,205  115,210  110,215  105,210" fill="#7DB894"/>
+        <defs>
+          <path id="arc-top-df" d="M 31,110 A 79,79 0 0,1 189,110"/>
+          <path id="arc-bot-df" d="M 33,110 A 77,77 0 0,0 187,110"/>
+        </defs>
+        <text class="sans" font-size="9" letter-spacing="4" fill="#C8DDD0" text-anchor="middle">
+          <textPath href="#arc-top-df" startOffset="50%">GWEN'S  POTTERY</textPath>
+        </text>
+        <text class="sans" font-size="7.5" letter-spacing="3" fill="#8FBA9C" text-anchor="middle">
+          <textPath href="#arc-bot-df" startOffset="50%">HAMBURG  ·  HANDMADE</textPath>
+        </text>
+        <line x1="78" y1="97" x2="142" y2="97" stroke="#7DB894" stroke-width="0.6"/>
+        <text class="serif" font-size="21" font-style="italic" font-weight="300"
+              fill="#E8F0EC" text-anchor="middle" x="110" y="116">Gwen's Pottery</text>
+        <line x1="78" y1="122" x2="142" y2="122" stroke="#7DB894" stroke-width="0.6"/>
+        <text class="sans" font-size="7" letter-spacing="3" fill="#8FBA9C"
+              text-anchor="middle" x="110" y="133">EST.  2025</text>
+      </svg>
+      <span style="font-size:0.7rem; color:#9A928B;">56px – Footer</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

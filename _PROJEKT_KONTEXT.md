@@ -1,6 +1,6 @@
 # Gwens Pottery — Projekt-Kontext & Arbeitsgrundlage
 > Diese Datei wird zu Beginn jedes Prompts gelesen, bevor gehandelt wird.
-> Letzte Aktualisierung: 2026-03-13
+> Letzte Aktualisierung: 2026-03-29
 
 ---
 
@@ -14,7 +14,7 @@ Aufbau einer professionellen, zweisprachigen (DE/EN) Premium-Webpräsenz für ha
 - **Name:** Gwen Leon (gwenleon@web.de)
 - **Produkt:** Selbst hergestellte Keramik-Sets (zuhause gefertigt)
 - **Preissegment:** Premium — 150 €+
-- **Aktuelle Website:** Hostinger (Design-Builder) → URL noch nicht angegeben ⚠️ *bei nächster Gelegenheit erfragen*
+- **Aktuelle Website:** gwenspottery.de (GitHub Pages, live sobald DNS propagiert)
 
 ---
 
@@ -99,12 +99,15 @@ Aufbau einer professionellen, zweisprachigen (DE/EN) Premium-Webpräsenz für ha
 ---
 
 ## ❗ Offene Punkte
-1. ~~URL der aktuellen Hostinger-Webseite~~ → ✅ gwenspottery.de analysiert
-2. **Farbpalette** → In index.html umgesetzt: #F5F0EB / #3D3935 / #B87A5E / #8A9E8C
-3. **Typografie** → Cormorant Garamond (Headlines) + DM Sans (Body) eingebaut
-4. **Produktfotos** → Platzhalter in index.html vorbereitet (assets/schalen.jpg etc.)
-5. **Impressum/DSGVO** → Impressum-Sektion vorhanden, Datenschutzerklärung fehlt noch
-6. **Hosting-Entscheidung** → Netlify empfohlen (kostenlos, CDN, Drag & Drop Deploy)
+1. ~~URL der aktuellen Hostinger-Webseite~~ → ✅ gwenspottery.de live
+2. ~~Farbpalette~~ → ✅ umgesetzt: #EDE8E1 / #33302C / #6B7F6E
+3. ~~Typografie~~ → ✅ Cormorant Garamond + DM Sans
+4. **Produktfotos** → echte Fotos noch einzupflegen (Bilder/ Ordner vorhanden)
+5. ~~Impressum/DSGVO~~ → ✅ beide Seiten fertig, einheitlich, DSGVO-konform
+6. ~~Hosting~~ → ✅ GitHub Pages, Auto-Deploy aktiv
+7. **Webshop** → nächste große Phase (Stripe oder Shopify Buy Button)
+8. **WhatsApp MCP** → Setup-Skripte auf Desktop bereit, noch nicht ausgeführt
+9. **VSC Integration** → Nächste Arbeitsumgebung (Claude Code Extension installieren)
 
 ---
 

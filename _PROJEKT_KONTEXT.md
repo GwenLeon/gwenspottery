@@ -82,7 +82,7 @@ Aufbau einer professionellen, zweisprachigen (DE/EN) Premium-Webpräsenz für ha
 | 2 | Hosting-Vergleich (Dokument) | ✅ Abgeschlossen (Hosting-Vergleich_GwensPottery.docx) |
 | 2b | Hosting & Deploy eingerichtet | ✅ Abgeschlossen (GitHub Pages, öffentliches Repository, gwenspottery.de live) |
 | 3 | Design-Update (organisch, oldmoney, Sylt-frei) | ✅ Abgeschlossen (März 2026) |
-| 4 | SEO-Optimierung + Automated Daily SEO | ⏳ Ausstehend |
+| 4 | SEO-Optimierung + Automated Daily SEO | ✅ Abgeschlossen (März 2026 — GitHub Actions: Lighthouse, Uptime, Sitemap-Ping, Broken Links) |
 | 5 | Webshop-Anbindung | ⏳ Ausstehend |
 
 ---
